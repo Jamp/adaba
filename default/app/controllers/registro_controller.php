@@ -76,6 +76,44 @@ class RegistroController extends AppController
 
     }
 
+    public function registrar() {
+        if ( Input::hasPost('primer_nombre') ) {
+            print_r($_POST);
+            Load::model('datos_personales');
+            $datos = new DatosPersonales( Input::post('datos') );
+/*
+    [nombre_rep_1] => Carmen de Marval
+    [cedula_rep_1] => 9580394
+    [religion_rep_1] => 7
+    [instruccion_rep_1] => 1
+    [ocupacion_rep_1] => 1
+    [telefono_rep_1] => 02695116112
+    [celular_rep_1] => 04268550000
+    [email_rep_1] => cmarval@gmail.com
+    [fax_rep_1] => 02695116112
+    [direccion_rep_1] => Calle Bolivar
+    [nombre_rep_2] =>
+    [cedula_rep_2] =>
+    [religion_rep_2] => 0
+    [instruccion_rep_2] => 0
+    [ocupacion_rep_2] => 0
+    [telefono_rep_2] =>
+    [celular_rep_2] =>
+    [email_rep_2] =>
+    [fax_rep_2] =>
+    [direccion_rep_2] =>
+    [distrito] => 1
+    [ramas] => 14
+    [fecha_ingreso] => 03/02/2000
+    [grupo] => 1
+    [agrupacion] => 0
+    [fecha_promesa] => 03/03/2000
+    */
+        }
+    }
+
+    /* Controladores Asincronos */
+
     public function getGrupos($idDistrito = '') {
         $salida = array('status' => 'ERROR');
         if ( $idDistrito != '' ) {

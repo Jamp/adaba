@@ -1,65 +1,66 @@
 
 			<span class="titulo"> Registrar Jovén </span>
 			<span class="subtitulo"> Datos Personales </span>
+			<?php echo Form::open('registro/registrar/'); ?>
 				<!-- Izquierdo -->
 				<section class="grid_4 alpha">
 						<label class="izq">Primer Nombre*</label>
-						<?php echo Form::text('primer_nombre', 'class="campotxt medium"'); ?>
+						<?php echo Form::text('datos.primer_nombre', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Primer Apellido</label>
-						<?php echo Form::text('primer_apellido', 'class="campotxt medium"'); ?>
+						<?php echo Form::text('datos.primer_apellido', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Cédula</label>
-						<?php echo Form::text('cedula', 'class="campotxt medium"'); ?>
+						<?php echo Form::text('datos.cedula', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Nacionalidad</label>
-						<?php echo Registro::cmbNacionalidad('nacionalidad', 'class="campotxt medium"'); ?>
+						<?php echo Registro::cmbNacionalidad('datos.nacionalidad', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Grado de Instrucción</label>
-						<?php echo Registro::cmbInstruccion('grado_instruccion', 'class="campotxt medium"'); ?>
+						<?php echo Registro::cmbInstruccion('datos.grado_instruccion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Religión</label>
-						<?php echo Registro::cmbReligion('religion', 'class="campotxt medium"'); ?>
+						<?php echo Registro::cmbReligion('datos.religion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Sexo</label>
-						<?php echo Registro::cmbSexo('sexo', 'class="campotxt small"'); ?>
+						<?php echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Telefóno</label>
-						<?php echo Form::text('telefono', 'class="campotxt medium"'); ?>
+						<?php echo Form::text('datos.telefono', 'class="campotxt medium"'); ?>
 						<label class="izq">Lugar de Estudio <br/>o Trabajo</label>
 						<br/>
-						<input id="primer_nombre" name="primer_nombre" type="text" value=""  class="campotxt medium"/>
+						<?php echo Form::text('lugar_trabajo', 'class="campotxt medium"'); ?>
 				</section>
 				<!-- Izquierdo -->
 
 				<!-- Derecho -->
 				<section class="grid_4 omega">
 						<label class="izq">Segundo Nombre</label>
-						<?php echo Form::text('segundo_nombre', 'class="campotxt medium"') ?>
+						<?php echo Form::text('datos.segundo_nombre', 'class="campotxt medium"') ?>
 						<br/>
 						<label class="izq">Segundo Apellido</label>
-						<?php echo Form::text('segundo_apellido', 'class="campotxt medium"') ?>
+						<?php echo Form::text('datos.segundo_apellido', 'class="campotxt medium"') ?>
 						<br/>
 						<label class="izq">Fecha de Nacimiento</label>
-						<?php echo Registro::fecha('fecha_nac', 'class="campotxt small"'); ?>
+						<?php echo Registro::fecha('datos.fecha_nacimiento', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Tipo de Sangre</label>
-						<?php echo Registro::cmbSangre('sexo', 'class="campotxt medium"'); ?>
+						<?php echo Registro::cmbSangre('datos.tipo_sangre', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Ocupación</label>
-						<?php echo Registro::cmbOcupacion('sexo', 'class="campotxt medium"'); ?>
+						<?php echo Registro::cmbOcupacion('datos.ocupacion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Estudios</label>
 						<?php echo Registro::cmbEstudios('tipo_estudio', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Lugar de Nacimiento</label>
-						<?php echo Form::text('lugar_nacimiento', 'class="campotxt medium"') ?>
+						<?php echo Form::text('datos.lugar_nacimiento', 'class="campotxt medium"') ?>
 						<br/>
 						<label class="izq">Celular</label>
-						<?php echo Form::text('celular', 'class="campotxt medium"') ?>
+						<?php echo Form::text('datos.celular', 'class="campotxt medium"') ?>
 						<br/>
 						<label class="izq">Correo electrónico</label>
-						<?php echo Form::text('correo', 'class="campotxt medium"') ?>
+						<?php echo Form::text('datos.email', 'class="campotxt medium"') ?>
 						<br/>
 				</section>
 				<!-- Derecho -->
@@ -161,7 +162,7 @@
 									<?php echo Form::select('ramas', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Fecha de Ingreso</label>
-									<?php echo Registro::fecha('fecha_ingreso', 'class="campotxt small"'); ?>
+									<?php echo Registro::fecha('datos.fecha_ingreso', 'class="campotxt small"'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -173,7 +174,7 @@
 						                <tbody>
 						                    <tr>
 						                        <td class="celda_corta">00/00/0000</td>
-						                        <td>&nbsp;<a href="/sgs//sgs/default/public/index.php"  ><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
+						                        <td>&nbsp;<a href="#"><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -187,7 +188,7 @@
 						                <tbody>
 						                    <tr>
 						                        <td class="celda_corta">00/00/0000</td>
-						                        <td>&nbsp;<a href="/sgs//sgs/default/public/index.php"  ><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
+						                        <td>&nbsp;<a href="#"><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -201,7 +202,7 @@
 						                <tbody>
 						                    <tr>
 						                        <td class="celda_corta">00/00/0000</td>
-						                        <td>&nbsp;<a href="/sgs//sgs/default/public/index.php"  ><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
+						                        <td>&nbsp;<a href="#"><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -226,7 +227,7 @@
 						                <tbody>
 						                    <tr>
 						                        <td class="celda_corta">00/00/0000</td>
-						                        <td>&nbsp;<a href="/sgs//sgs/default/public/index.php"  ><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
+						                        <td>&nbsp;<a href="#"><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -240,7 +241,7 @@
 						                <tbody>
 						                    <tr>
 						                        <td class="celda_corta">00/00/0000</td>
-						                        <td>&nbsp;<a href="/sgs//sgs/default/public/index.php"  ><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
+						                        <td>&nbsp;<a href="#"><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -254,7 +255,7 @@
 						                <tbody>
 						                    <tr>
 						                        <td class="celda_corta">00/00/0000</td>
-						                        <td>&nbsp;<a href="/sgs//sgs/default/public/index.php"  ><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
+						                        <td>&nbsp;<a href="#"><img src="/sgs/img/empty.png" class="add" border="0"></a></td>
 						                    </tr>
 						                </tbody>
 						            </table>
@@ -267,6 +268,7 @@
 						<?php echo Form::submit('Registrar', 'class="botonessimples" id="aceptar"'); ?>
 					</div>
 				</section>
+			<?php echo Form::close(); ?>
 				<script language="">
 					$(document).ready(function() {
 						$('#tabs').tabs();

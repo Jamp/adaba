@@ -318,14 +318,19 @@ class Registro extends Form {
         $actual = date('Y');
         $rangoano = ($actual - 100)  . ':' . $actual;  //yearRange: '2000:2010'
         $value = ($value) ? strftime("%d/%m/%Y", strtotime($value)) : "";
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
 
-        $campo = "<input type=\"date\" value=\"$value\" name=\"$field\" id=\"$field\" $attrs />";
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+
+        $campo = "<input type=\"date\" value=\"$value\" name=\"$field\" id=\"$id\" $attrs />";
         // $campo = parent::text($field, $attrs, $value);
         $campo .= Tag::js('jquery/jquery.ui.datepicker-es');
         $campo .= "\r\n<script>
     	$(function() {
-            $( \"#$field\" ).datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            $( \"#$id\" ).datepicker({
+            dateFormat: 'dd/mm/yy',
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '$rangoano'
