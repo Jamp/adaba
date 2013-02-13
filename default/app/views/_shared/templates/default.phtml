@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='<?php echo APP_CHARSET ?>'>
+    <meta http-equiv='Content-type' content='text/html; charset=<?php echo APP_CHARSET ?>' />
+    <title>ADABA <?php echo ( $titulo == "" )? "" : "- " . $titulo; ?></title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <?php Tag::css('style'); ?>
+    <?php Tag::css('960/reset', 'all'); ?>
+    <?php Tag::css('960/text', 'all'); ?>
+    <?php Tag::css('960/960', 'all'); ?>
+    <?php Tag::css('sgs/estilo', 'all'); ?>
+    <?php echo Html::includeCss() ?>
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+
+
+</head>
+<body>
+    <?php View::partial('template/header_inside'); ?>
+
+    <?php View::partial('template/cuerpo_inside'); ?>
+
+    <?php View::partial('template/footer'); ?>
+</body>
+</html>

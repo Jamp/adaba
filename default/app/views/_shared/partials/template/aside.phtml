@@ -1,0 +1,53 @@
+		<aside class="grid_2">
+			<div id="lateral">
+				<?php
+				Load::model('datos_personales');
+				$datos = new DatosPersonales();
+				$cargo = Session::get('cargo');
+				$poder = Session::get('poder');
+				?>
+				<div id="nombreseccion">Datos personales</div>
+				<div class="content">
+					<span class="etq">Nombre:</span>
+					<br>
+					<?php echo $datos->getNombreCompleto(Session::get('id')); ?>
+					<br>
+					<span class="etq">Correo Eléctronico:</span>
+					<br>
+					<?php echo $datos->getEmail(Session::get('id')); ?>
+					<br>
+					<span class="etq">Cargo:</span>
+					<br>
+					<?php echo $cargo['nombre']; ?>
+					<?php echo ( $cargo['alcance_id'] ) ? "<br>" . $cargo['alcance'] : ""; ?>
+					<br>
+					<?php echo ( $poder['nivel'] ) ? '<span class="etq">Poderes:</span>' . $poder['nombre'] : ''; ?>
+					<?php echo ( $poder['alcance_id'] ) ? '<br>' . $poder['alcance'] . '<br>' : ''; ?>
+				</div>
+				<div id="nombreseccion">Notificaciones (2)</div>
+				<div class="content">
+					- Asignación de Cargo
+					<br>
+					- Entrega de Insignias
+					<br>
+					- Plan Trimestral
+					<br>
+					Ver Todo
+					<br>
+				</div>
+				<div id="nombreseccion">Eventos</div>
+				<div class="content">
+					- Indaba Regional I
+					<br>
+					- CADIPAS 2011
+					<br>
+					- Días de las Aguas
+					<br>
+					- Jocom
+					<br>
+					Ver Todo
+					<br>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</aside>

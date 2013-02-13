@@ -1,21 +1,14 @@
 ADABA
 =====
 
-Sistema de Gestión Scouts Web, Desarrollado para la Región Scouts Falcón por el equipo de Icterus, C.A.
-El desarrollo ha sido posible usando [KumbiaPHP 1.0Beta2](http://www.kumbiaphp.com/) y [960 Grid](http://960.gs/)
+Sistema de Gestión Scouts Web, Desarrollado para la Región Scouts Falcón por el equipo de Icterus, C.A. con [KumbiaPHP 1.0Beta2](http://www.kumbiaphp.com/) y [960 Grid](http://960.gs/)
 
 ## Desarrollado por el Equipo de Icterus
 * [Jaro Marval](jampgold@gmail.com) (Jefe del Proyecto, Desarrollador, Diseñador)
 * [Enrique Valerio](scouter_ejv@hotmail.com) (Creador de Concepto)
 
 ## Caracteristicas
-* Registro Scouts
-	** Grupos
-	** Unidad
-    ** Patrullas 
-	** Seisenas
-	** Jovenés
-    ** Adultos
+* Registro Scouts (Grupos, Unidad, Patrullas, Seisenas, Jovenés, Adultos)
 * Aprobación de Condecoraciones
 * Asignación de Cargos
 
@@ -26,3 +19,4 @@ El desarrollo ha sido posible usando [KumbiaPHP 1.0Beta2](http://www.kumbiaphp.c
 * Solicitud de Máximas Insignias
 * Creación de Eventos
 * Concursos de Vida al Aire Libre y Acción Comunitaria
+* Otros
