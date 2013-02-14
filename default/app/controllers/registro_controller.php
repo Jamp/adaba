@@ -77,10 +77,10 @@ class RegistroController extends AppController
     }
 
     public function registrar() {
-        if ( Input::hasPost('primer_nombre') ) {
+        if ( Input::hasPost('datos') ) {
             print_r($_POST);
-            Load::model('datos_personales');
-            $datos = new DatosPersonales( Input::post('datos') );
+            //Load::model('datos_personales');
+            //$datos = new DatosPersonales( Input::post('datos') );
 /*
     [nombre_rep_1] => Carmen de Marval
     [cedula_rep_1] => 9580394

@@ -4,14 +4,14 @@
 			<?php echo Form::open('registro/registrar/'); ?>
 				<!-- Izquierdo -->
 				<section class="grid_4 alpha">
-						<label class="izq">Primer Nombre*</label>
+						<label class="izq">Primer Nombre</label>
 						<?php echo Form::text('datos.primer_nombre', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Primer Apellido</label>
 						<?php echo Form::text('datos.primer_apellido', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Cédula</label>
-						<?php echo Form::text('datos.cedula', 'class="campotxt medium"'); ?>
+						<?php echo Registro::number('datos.cedula', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Nacionalidad</label>
 						<?php echo Registro::cmbNacionalidad('datos.nacionalidad', 'class="campotxt medium"'); ?>
@@ -26,7 +26,7 @@
 						<?php echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Telefóno</label>
-						<?php echo Form::text('datos.telefono', 'class="campotxt medium"'); ?>
+						<?php echo Registro::tel('datos.telefono', 'class="campotxt medium"'); ?>
 						<label class="izq">Lugar de Estudio <br/>o Trabajo</label>
 						<br/>
 						<?php echo Form::text('lugar_trabajo', 'class="campotxt medium"'); ?>
@@ -57,10 +57,10 @@
 						<?php echo Form::text('datos.lugar_nacimiento', 'class="campotxt medium"') ?>
 						<br/>
 						<label class="izq">Celular</label>
-						<?php echo Form::text('datos.celular', 'class="campotxt medium"') ?>
+						<?php echo Registro::cel('datos.celular', 'class="campotxt medium"') ?>
 						<br/>
 						<label class="izq">Correo electrónico</label>
-						<?php echo Form::text('datos.email', 'class="campotxt medium"') ?>
+						<?php echo Registro::email('datos.email', 'class="campotxt medium"') ?>
 						<br/>
 				</section>
 				<!-- Derecho -->
@@ -86,7 +86,11 @@
 								<div class="grid_2">
 									<label class="izq">Nombre Completo</label>
 									<br/>
+									<label class="izq">Nacionalidad</label>
+									<br/>
 									<label class="izq">Cédula</label>
+									<br/>
+									<label class="izq">Tipo de Sangre</label>
 									<br/>
 									<label class="izq">Religión</label>
 									<br/>
@@ -106,47 +110,55 @@
 									<br/>
 								</div>
 								<div class="grid_2">
-									<?php echo Form::text('nombre_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Form::text('rep.nombre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('cedula_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbNacionalidad('rep.nacionalidad', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbReligion('religion_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::number('rep.cedula', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbInstruccion('instruccion_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbSangre('rep.sangre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbOcupacion('ocupacion_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbReligion('rep.religion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('telefono_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbInstruccion('rep.grado_instruccion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('celular_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbOcupacion('rep.ocupacion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('email_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::tel('rep.telefono', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('fax_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::cel('rep.celular', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::textarea('direccion_rep_1', 'class="campotxt medium"') ?>
+									<?php echo Registro::email('rep.email', 'class="campotxt medium"') ?>
+									<br/>
+									<?php echo Registro::tel('rep.fax', 'class="campotxt medium"') ?>
+									<br/>
+									<?php echo Form::textarea('rep.direccion', 'class="campotxt medium"') ?>
 									<br/>
 								</div>
 								<div class="grid_2">
-									<?php echo Form::text('nombre_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Form::text('rep.nombre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('cedula_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbNacionalidad('rep.nacionalidad', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbReligion('religion_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::number('rep.cedula', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbInstruccion('instruccion_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbSangre('rep.sangre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbOcupacion('ocupacion_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbReligion('rep.religion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('telefono_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbInstruccion('rep.grado_instruccion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('celular_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbOcupacion('rep.ocupacion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('email_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::tel('rep.telefono', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::text('fax_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::cel('rep.celular', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::textarea('direccion_rep_2', 'class="campotxt medium"') ?>
+									<?php echo Registro::email('rep.email', 'class="campotxt medium"') ?>
+									<br/>
+									<?php echo Registro::tel('rep.fax', 'class="campotxt medium"') ?>
+									<br/>
+									<?php echo Form::textarea('rep.direccion', 'class="campotxt medium"') ?>
 									<br/>
 								</div>
 							</div>
@@ -269,7 +281,8 @@
 					</div>
 				</section>
 			<?php echo Form::close(); ?>
-				<script language="">
+			<?php View::partial('formjs'); ?>
+				<script type="text/javascript">
 					$(document).ready(function() {
 						$('#tabs').tabs();
 						$('#distrito').on('change', function() {

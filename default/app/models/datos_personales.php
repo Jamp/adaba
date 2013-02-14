@@ -11,7 +11,7 @@ class DatosPersonales extends ActiveRecord {
 
     public function initialize() {
         // $this->belongs_to('datos_personales', 'model: datos_personales', 'fk: datos_personales_id');
-        // $this->validates_email_in('email', 'message: Debe colocar un email valido');
+        $this->validates_email_in('email', 'message: Debe colocar un correo electrónico válido');
         //$this->validates_length_of('clave', 16, 8);
         $this->logger = True;
     }
@@ -53,6 +53,17 @@ class DatosPersonales extends ActiveRecord {
             INNER JOIN datos_adultos_scouts ON datos_personales.id = datos_adultos_scouts.datos_personales_id
             WHERE `datos_personales`.`id` = $id";
             return $this->find_by_sql($sql);
+    }
+
+
+    public function registrar() {
+        $rs = $this->save();
+
+        return ( $rs ) ? $this->id : False;
+    }
+
+    public function after_save() {
+
     }
 }
 ?>

@@ -1,0 +1,24 @@
+<?php
+echo Tag::js('jquery/jquery.ui.datepicker-es');
+echo Tag::js('form');
+?>
+<style type="text/css">
+	#alert{
+		opacity: 0.9;
+		position: fixed;
+		top: 150px;
+		right: 30px;
+		width: 350px;
+		display: none;
+		padding: 8px;
+		line-height: 1.2em;
+		min-height: none;
+		z-index: 10000;
+	}
+
+	.box_error {
+		-webkit-box-shadow: 0px 0px 3px 1px rgba(255, 0, 0, 1);
+		box-shadow: 0px 0px 3px 1px rgba(255, 0, 0, 1);
+	}
+</style>
+<div id="alert" class="error flash"></div>

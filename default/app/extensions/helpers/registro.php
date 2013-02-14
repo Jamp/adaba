@@ -285,8 +285,13 @@ class Registro extends Form {
      * @return String
      */
     public static function number($field, $attrs = NULL, $value = NULL ) {
-        $campo = "<input type=\"number\" value=\"$value\" name=\"$field\" id=\"$field\" $attrs />";
-        return $campo;
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+
+        return "<input id=\"$id\" name=\"$name\" type=\"number\" value=\"$value\" $attrs/>";
     }
 
     /**
@@ -297,10 +302,52 @@ class Registro extends Form {
      * @param String $value
      * @return String
      */
-    public static function phone($field, $attrs = NULL, $value = NULL ) {
-        $campo = "<input type=\"phone\" value=\"$value\" name=\"$field\" id=\"$field\" $attrs />";
-        return $campo;
+    public static function tel($field, $attrs = NULL, $value = NULL ) {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+
+        return "<input id=\"$id\" name=\"$name\" type=\"tel\" value=\"$value\" data-type=\"local\" $attrs/>";
     }
+
+    /**
+     * Campo celular (html5)
+     *
+     * @param String $field
+     * @param String $attrs
+     * @param String $value
+     * @return String
+     */
+    public static function cel($field, $attrs = NULL, $value = NULL ) {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+
+        return "<input id=\"$id\" name=\"$name\" type=\"tel\" value=\"$value\" data-type=\"celular\" $attrs/>";
+    }
+
+    /**
+     * Campo email (html5)
+     *
+     * @param String $field
+     * @param String $attrs
+     * @param String $value
+     * @return String
+     */
+    public static function email($field, $attrs = NULL, $value = NULL ) {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+
+        return "<input id=\"$id\" name=\"$name\" type=\"email\" value=\"$value\" $attrs/>";
+    }
+
 
 
     /**
@@ -324,22 +371,7 @@ class Registro extends Form {
 
         extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
 
-        $campo = "<input type=\"date\" value=\"$value\" name=\"$field\" id=\"$id\" $attrs />";
-        // $campo = parent::text($field, $attrs, $value);
-        $campo .= Tag::js('jquery/jquery.ui.datepicker-es');
-        $campo .= "\r\n<script>
-    	$(function() {
-            $( \"#$id\" ).datepicker({
-            dateFormat: 'dd/mm/yy',
-			changeMonth: true,
-			changeYear: true,
-			yearRange: '$rangoano'
-		});
-	});
-	</script>
-    ";
-
-        return $campo;
+        return "<input id=\"$id\" name=\"$name\" type=\"date\" value=\"$value\" $attrs/>";
     }
 
     /**
