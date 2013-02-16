@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='<?php echo APP_CHARSET ?>'>
+    <meta http-equiv='Content-type' content='text/html; charset=<?php echo APP_CHARSET ?>' />
+    <title>ADABA - Entrar</title>
+    <?php Tag::css('style'); ?>
+    <?php Tag::css('960/reset', 'all'); ?>
+    <?php Tag::css('960/text', 'all'); ?>
+    <?php Tag::css('960/960', 'all'); ?>
+    <?php Tag::css('sgs/estilo', 'all'); ?>
+    <?php echo Html::includeCss() ?>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+</head>
+<body>
+    <?php View::partial('template/header'); ?>
+
+    <?php View::partial('template/cuerpo'); ?>
+
+    <?php View::partial('template/footer'); ?>
+</body>
+</html>

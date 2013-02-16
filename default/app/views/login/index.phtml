@@ -1,0 +1,28 @@
+<section class="grid_4 prefix_4 suffix_4" id="login">
+	<h3>Bienvenido a Adaba</h3>
+	<?php View::content(); ?>
+	<?php echo Form::open(""); ?>
+
+		<div class="grid_2 alpha">
+			<span class="label">Usuario: </span>
+		</div>
+		<div class="grid_2 omega">
+			<?php echo Form::text("usuario", "class = 'campotxt'"); ?>
+
+		</div>
+		<br>
+		<div class="grid_2 alpha">
+			<span class="label">Contraseña: </span>
+		</div>
+		<div class="grid_2 omega">
+			<?php echo Form::pass("clave", "class = 'campotxt'"); ?>
+
+		</div>
+		<br>
+		<div class="grid_2 prefix_2 suffix_2 alpha">
+			<?php echo Form::submit("Entrar", 'class="botonessimples" id="aceptar"'); ?>
+
+		</div>
+
+	<?php echo Form::close(); ?>
+</section>
