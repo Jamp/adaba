@@ -40,7 +40,7 @@ class DatosPersonales extends ActiveRecord {
     }
 
     public function getDatosAdulto($id) {
-        $sql = "SELECT datos_personales.id AS id, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cedula, fecha_nacimiento, nacionalidad, tipo_sangre, grado_instruccion, religion, sexo, ocupacion, lugar_nacimiento, telefono, celular, email,
+        $sql = "SELECT `datos_personales`.`id` AS id, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cedula, fecha_nacimiento, nacionalidad, tipo_sangre, grado_instruccion, religion, sexo, ocupacion, lugar_nacimiento, telefono, celular, email,
 
             -- Datos Adultos
             estado_civil, lugar_trabajo, telefono_trabajo, fax_trabajo, email_trabajo,
@@ -49,20 +49,38 @@ class DatosPersonales extends ActiveRecord {
             credencial, fecha_promesa
 
             FROM datos_personales
-            INNER JOIN datos_adultos ON datos_personales.id = datos_adultos.datos_personales_id
-            INNER JOIN datos_adultos_scouts ON datos_personales.id = datos_adultos_scouts.datos_personales_id
+            INNER JOIN datos_adultos ON `datos_personales`.`id` = `datos_adultos`.`datos_personales_id`
+            INNER JOIN datos_adultos_scouts ON `datos_personales`.`id` = `datos_adultos_scouts`.`datos_personales_id`
             WHERE `datos_personales`.`id` = $id";
             return $this->find_by_sql($sql);
     }
 
 
     public function registrar() {
-        $rs = $this->save();
-
-        return ( $rs ) ? $this->id : False;
+        // $this->begin();
+        $this->rs = $this->save();
+        return ( $this->rs ) ? $this->id : False;
     }
 
     public function after_save() {
+        Load::model('datos_jovenes');
+        Load::model('datos_representante');
+        $jovenes = Input::post('scouts');
+        $rep1 = Input::post('rep1');
+        $rep2 = Input::post('rep2');
+        
+        $datosJovenes = new DatosJovenes($jovenes);
+        $rsj = $datosJovenes->vincular($this->id);
+        $datosRepresentante1 = new DatosRepresentante($rep1);
+        $rsp1 = $datosRepresentante1->vincular($this->id);
+        $datosRepresentante2 = new DatosRepresentante($rep2);
+        $rsp2 = $datosRepresentante2->vincular($this->id);
+
+        /*if ( $this->rs && $rsj && $rsp1 && $rsp2 ) {
+            $this->commit();
+        } else {
+            $this->rollback();
+        }*/
 
     }
 }

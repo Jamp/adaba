@@ -14,11 +14,7 @@ class Ramas extends ActiveRecord {
     }
 
     public function getRamas($idgrupo) {
-    	return $this->find("grupo_id =  $idgrupo AND estatus = 1", 'columns: id, nombre');
-    }
-
-    public function gridRamas($idgrupo) {
-    	$sql = "SELECT `ramas`.`id` AS id, `ramas`.`nombre` AS Nombre
+    	$sql = "SELECT `ramas`.`id` AS id, `ramas`.`nombre` AS nombre
 		FROM `grupo` 
 		INNER JOIN `grupo_ramas`ON `grupo`.`id` = `grupo_ramas`.`grupo_id`
 		INNER JOIN `ramas` ON `grupo_ramas`.`ramas_id` = `ramas`.`id`

@@ -50,7 +50,7 @@ class EstructuraController extends AppController {
 				break;
 			case self::GRUPAL:
 				$model = 'ramas';
-				$method = 'gridRamas';
+				$method = 'getRamas';
 				break;
 			case self::UNIDAD:
 				$model = 'agrupaciones';

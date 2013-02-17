@@ -29,7 +29,7 @@
 						<?php echo Registro::tel('datos.telefono', 'class="campotxt medium"'); ?>
 						<label class="izq">Lugar de Estudio <br/>o Trabajo</label>
 						<br/>
-						<?php echo Form::text('lugar_trabajo', 'class="campotxt medium"'); ?>
+						<?php echo Form::text('scouts.lugar_estudio_trabajo', 'class="campotxt medium"'); ?>
 				</section>
 				<!-- Izquierdo -->
 
@@ -51,7 +51,7 @@
 						<?php echo Registro::cmbOcupacion('datos.ocupacion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Estudios</label>
-						<?php echo Registro::cmbEstudios('tipo_estudio', 'class="campotxt small"'); ?>
+						<?php echo Registro::cmbEstudios('scouts.tipo_estudio', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Lugar de Nacimiento</label>
 						<?php echo Form::text('datos.lugar_nacimiento', 'class="campotxt medium"') ?>
@@ -70,7 +70,8 @@
 						<label class="izq">Dirección</label>
 					</div>
 					<div class="grid_6 omega">
-						<textarea class="campotxt extralarge" name="direccion" id="direccion" style="width:100%;"></textarea>
+						<?php echo Form::textarea('datos.direccion', ' class="campotxt extralarge" style="width:100%;"'); ?>
+						
 					</div>
 				</section>
 
@@ -110,55 +111,55 @@
 									<br/>
 								</div>
 								<div class="grid_2">
-									<?php echo Form::text('rep.nombre', 'class="campotxt medium"') ?>
+									<?php echo Form::text('rep1.nombre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbNacionalidad('rep.nacionalidad', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbNacionalidad('rep1.nacionalidad', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::number('rep.cedula', 'class="campotxt medium"') ?>
+									<?php echo Registro::number('rep1.cedula', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbSangre('rep.sangre', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbSangre('rep1.sangre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbReligion('rep.religion', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbReligion('rep1.religion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbInstruccion('rep.grado_instruccion', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbInstruccion('rep1.grado_instruccion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbOcupacion('rep.ocupacion', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbOcupacion('rep1.ocupacion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::tel('rep.telefono', 'class="campotxt medium"') ?>
+									<?php echo Registro::tel('rep1.telefono', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cel('rep.celular', 'class="campotxt medium"') ?>
+									<?php echo Registro::cel('rep1.celular', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::email('rep.email', 'class="campotxt medium"') ?>
+									<?php echo Registro::email('rep1.email', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::tel('rep.fax', 'class="campotxt medium"') ?>
+									<?php echo Registro::tel('rep1.fax', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::textarea('rep.direccion', 'class="campotxt medium"') ?>
+									<?php echo Form::textarea('rep1.direccion', 'class="campotxt medium"') ?>
 									<br/>
 								</div>
 								<div class="grid_2">
-									<?php echo Form::text('rep.nombre', 'class="campotxt medium"') ?>
+									<?php echo Form::text('rep2.nombre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbNacionalidad('rep.nacionalidad', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbNacionalidad('rep2.nacionalidad', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::number('rep.cedula', 'class="campotxt medium"') ?>
+									<?php echo Registro::number('rep2.cedula', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbSangre('rep.sangre', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbSangre('rep2.sangre', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbReligion('rep.religion', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbReligion('rep2.religion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbInstruccion('rep.grado_instruccion', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbInstruccion('rep2.grado_instruccion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cmbOcupacion('rep.ocupacion', 'class="campotxt medium"') ?>
+									<?php echo Registro::cmbOcupacion('rep2.ocupacion', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::tel('rep.telefono', 'class="campotxt medium"') ?>
+									<?php echo Registro::tel('rep2.telefono', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::cel('rep.celular', 'class="campotxt medium"') ?>
+									<?php echo Registro::cel('rep2.celular', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::email('rep.email', 'class="campotxt medium"') ?>
+									<?php echo Registro::email('rep2.email', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Registro::tel('rep.fax', 'class="campotxt medium"') ?>
+									<?php echo Registro::tel('rep2.fax', 'class="campotxt medium"') ?>
 									<br/>
-									<?php echo Form::textarea('rep.direccion', 'class="campotxt medium"') ?>
+									<?php echo Form::textarea('rep2.direccion', 'class="campotxt medium"') ?>
 									<br/>
 								</div>
 							</div>
@@ -168,13 +169,14 @@
 							<div class="grid_especial omega">
 								<div class="grid_280">
 									<label class="izq">Distrito</label>
-									<?php echo Form::dbSelect('distrito', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
+									<?php echo Form::hidden('scouts.pais_id', '1');
+									echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Unidad</label>
-									<?php echo Form::select('ramas', array('--'), 'class="campotxt medium"'); ?>
+									<?php echo Form::select('scouts.grupo_ramas_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Fecha de Ingreso</label>
-									<?php echo Registro::fecha('datos.fecha_ingreso', 'class="campotxt small"'); ?>
+									<?php echo Registro::fecha('scouts.fecha_ingreso', 'class="campotxt small"'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -221,13 +223,13 @@
 								</div>
 								<div class="grid_280">
 									<label class="izq">Grupo</label>
-									<?php echo Form::select('grupo', array('--'), 'class="campotxt medium"'); ?>
+									<?php echo Form::select('scouts.grupo_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Pequeña Grupo</label>
-									<?php echo Form::select('agrupacion', array('--'), 'class="campotxt medium"'); ?>
+									<?php echo Form::select('scouts.grupo_ramas_agrupaciones_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Fecha de Promesa</label>
-									<?php echo Registro::fecha('fecha_promesa', 'class="campotxt small"'); ?>
+									<?php echo Registro::fecha('scouts.fecha_promesa', 'class="campotxt small"'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -285,11 +287,12 @@
 				<script type="text/javascript">
 					$(document).ready(function() {
 						$('#tabs').tabs();
-						$('#distrito').on('change', function() {
-							var objecto = $('#grupo');
+						$('#scouts_distrito_id').on('change', function() {
+							var objecto = $('#scouts_grupo_id');
 							objecto.append( new Option("Cargando...", "0") );
-							clearSelect( $('#grupo') );
-							clearSelect( $('#ramas') );
+							clearSelect( $('#scouts_grupo_id') );
+							clearSelect( $('#scouts_grupo_ramas_id') );
+							clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
 							$.getJSON(
 								'<?php echo PUBLIC_PATH; ?>registro/getGrupos/' + $( this ).val(),
 								function(data) {
@@ -302,16 +305,33 @@
 								}
 							);
 						});
-						$('#grupo').on('change', function() {
-							var objecto = $('#ramas');
+						$('#scouts_grupo_id').on('change', function() {
+							var objecto = $('#scouts_grupo_ramas_id');
 							objecto.append( new Option("Cargando...", "0") );
-							clearSelect( $('#ramas') );
+							clearSelect( $('#scouts_grupo_ramas_id') );
+							clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
 							$.getJSON(
 								'<?php echo PUBLIC_PATH; ?>registro/getRamas/' + $( this ).val(),
 								function(data) {
 									clearSelect(objecto);
 									if ( data.status == 'OK' ) {
 										$.each(data.ramas, function(i, grupo) {
+											objecto.append( new Option(grupo.nombre, grupo.id) );
+										});
+									}
+								}
+							);
+						});
+						$('#scouts_grupo_ramas_id').on('change', function() {
+							var objecto = $('#scouts_grupo_ramas_agrupaciones_id');
+							objecto.append( new Option("Cargando...", "0") );
+							clearSelect( objecto );
+							$.getJSON(
+								'<?php echo PUBLIC_PATH; ?>registro/getAgrupaciones/' + $( this ).val(),
+								function(data) {
+									clearSelect(objecto);
+									if ( data.status == 'OK' ) {
+										$.each(data.agrupaciones, function(i, grupo) {
 											objecto.append( new Option(grupo.nombre, grupo.id) );
 										});
 									}

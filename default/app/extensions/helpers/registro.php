@@ -506,7 +506,7 @@ class Registro extends Form {
      * @return String
      */
     public static function cmbReligion($field, $attrs = NULL, $checked = NULL) {
-        $estados = "NO REFIRIO|LA FUERZA|ADVENTISTA|ARECRISNA|ATEO|BUDISTA|CATOLICO|CRISTIANO|EVANGELICO|JUDIO|LUTERANO|MORMON|MUSULMAN|PROTESTANTE|TESTIGO DE JEHOVA";
+        $estados = "NO REFIRIO|ADVENTISTA|ARECRISNA|ATEO|BUDISTA|CATOLICO|CRISTIANO|EVANGELICO|JUDIO|LUTERANO|MORMON|MUSULMAN|PROTESTANTE|TESTIGO DE JEHOVA|LA FUERZA";
         $data = explode("|", $estados);
         return parent::select($field, $data, $attrs, $checked);
     }
