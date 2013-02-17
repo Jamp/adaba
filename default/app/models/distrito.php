@@ -21,21 +21,16 @@ class Distrito extends ActiveRecord {
     	$sql = "SELECT 
     		`distrito`.`id` AS id, 
     		`distrito`.`nombre` AS Nombre, 
-    		sum( `grupo`.`estatus` ) AS Grupos
+    		sum( `grupo`.`estatus` ) AS Grupos,
+            sum( `datos_jovenes`.`estatus` ) AS Jovenes
     	FROM `distrito`
     	INNER JOIN `grupo` ON `distrito`.`id` = `grupo`.`distrito_id`
+        LEFT JOIN `datos_jovenes` ON `distrito`.`id` = `datos_jovenes`.`distrito_id`
     	WHERE 
     	( `grupo`.`estatus` = 1 AND `distrito`.`estatus` = 1 )
     	AND 
     	`distrito`.`region_id` = $idregion
     	GROUP BY `distrito`.`id` ";
-
-    	$columns = "columns: `distrito`.`id` AS ID, `distrito`.`nombre` AS Nombre, sum( `grupo`.`estatus` ) AS Cantidad";
-    	$join = "INNER JOIN `grupo` ON `distrito`.`id` = `grupo`.`distrito_id`";
-    	$conditions = "( `grupo`.`estatus` = 1 AND `distrito`.`estatus` = 1 )
-    	AND 
-    	`distrito`.`region_id` = $idregion";
-    	$group = "`distrito`.`id`";
 
     	return $this->find_all_by_sql($sql);
     }

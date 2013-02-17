@@ -22,43 +22,52 @@ class EstructuraController extends AppController {
 		$this->titulo = "Estructura";
 		
 		$cargo = Session::get('cargo');
-		$id_area = ( is_Null($tipo) ) ? $cargo['alcance_id'] : $tipo;
+		if ( is_Null($tipo) ) {
+			$id_area = $cargo['alcance_id'];
+			$this->volver = "";
+		} else { 
+			$id_area = $tipo;
+			$this->volver = '<a href="javascript:history.back(1)">Volver Atrás</a>';
+		}
 
 		$this->h1 = "Nivel: " . ucfirst($cargo['nivel_estructura']);
 		$this->h2 = "Seccion: " . ucfirst($cargo['alcance']);
 
+		$opciones = array(
+			'Ver' => 'estructura/' . ( $nivel + 1 ) ,
+			'Modificar' => '#'
+			);
+
 		switch ($nivel) {
 			case self::REGIONAL:
-				Load::model('distrito');
-				$distrito = new Distrito();
-				$rs = $distrito->gridDistrito($id_area);
+				$model = 'distrito';
+				$method = 'gridDistrito';
 				break;
 			case self::DISTRITAL:
-				Load::model('grupo');
-				$grupo = new Grupo();
-				$rs = $grupo->getGrupos($id_area);
+				$model = 'grupo';
+				$method = 'getGrupos';
+				$opciones['GPO'] = 'generar_gpo/';
 				break;
-
 			case self::GRUPAL:
-				Load::model('ramas');
-				$unidad = new Ramas();
-				$rs = $unidad->getRamas($id_area);
+				$model = 'ramas';
+				$method = 'gridRamas';
 				break;
 			case self::UNIDAD:
-				Load::model('agrupaciones');
-				$agrupaciones = new Agrupaciones();
-				$rs = $agrupaciones->getAgrupaciones($id_area);
+				$model = 'agrupaciones';
+				$method = 'getAgrupaciones';
 				break;
 			
 			default:
 				$rs = NULL;
 		}
 
-		$opciones = array(
-			'Ver' => 'estructura/' . ( $nivel + 1 ) ,
-			'Modificar' => '#'
-			);
-		Utils::grid($rs, True, $opciones);
+		$modelo = array(
+			$model,
+			$method,
+			$id_area
+		);
+
+		Utils::grid($modelo, True, $opciones);
 	}
 }
 

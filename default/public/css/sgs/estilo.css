@@ -480,6 +480,10 @@ th {
     text-shadow: black 0.1em 0.1em 0.2em;
 }
 
+th.options {
+    width: 30%;
+}
+
 .celda_corta {
     width: 80px;
     text-align: center;

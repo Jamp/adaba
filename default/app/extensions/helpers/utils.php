@@ -110,7 +110,21 @@ class Utils {
 
 		// $elementos = get_object_vars($rs);
 		print "<table>\r\n\t<tr>\r\n";
-		if (!$modelo) {
+
+		if ( !is_array($modelo) ) {
+			throw new Exception("Esperabamos un Array como modelo", 1);
+		}
+
+		$model = $modelo[0];
+		$method = $modelo[1];
+		$arg = $modelo[2];
+		$rs = Load::model($model)->$method($arg);
+
+		if ( $opciones && !is_array($arrayOpciones) ) {
+			throw new Exception("Esperabamos un Array como datos", 1);
+		}
+
+		if (!$rs) {
 			print "\t\t<td class=\"center\">Vacío</td>\r\n\t</tr>\r\n</table>\r\n";
 			return;
 		}
@@ -118,7 +132,7 @@ class Utils {
 		$header = False;
 		$registro = 1;
 		$numOpciones = count($arrayOpciones);
-		foreach ($modelo as $elemento) {
+		foreach ($rs as $elemento) {
 			// Imprimir Cabecera //
 			$elementos = array_keys( get_object_vars($elemento) );
 
@@ -132,7 +146,7 @@ class Utils {
 					} else {
 						print "\t\t<th>" . ucfirst($key) . "</th>\r\n";
 					}
-					if ( $opciones && $current == $last ) print "\t\t<th colspan=\"$numOpciones\">Opciones</th>\r\n";
+					if ( $opciones && $current == $last ) print "\t\t<th colspan=\"$numOpciones\" class=\"options\">Opciones</th>\r\n";
 					$current++;
 				}
 				print "\t<tr>\r\n";
