@@ -7,7 +7,7 @@
  * @version 0.1
  *
  */
-class pais extends ActiveRecord {
+class Pais extends ActiveRecord {
 
 
     public function initialize() {

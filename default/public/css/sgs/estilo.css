@@ -467,6 +467,10 @@ td {
     font-size: 12px;
 }
 
+td.center {
+    text-align: center;
+}
+
 th {
     font-weight: bolder;
     text-align: center;
@@ -482,33 +486,33 @@ th {
 }
 
 
-        /* jquery ui */
-        .ui-widget-content, .ui-widget-header{
+/* jquery ui */
+.ui-widget-content, .ui-widget-header{
 
-        }
+}
 
-        .ui-tabs .ui-tabs-panel {
-            border: 1px solid #AAA;
-            border-radius: 4px;
-        }
+.ui-tabs .ui-tabs-panel {
+    border: 1px solid #AAA;
+    border-radius: 4px;
+}
 
-        .grid_especial {
-            display: inline-block;
-            width: 580px;
-        }
+.grid_especial {
+    display: inline-block;
+    width: 580px;
+}
 
-        .grid_250 {
-            vertical-align: top;
-            display: inline-block;
-            width: 250px;
-            margin-left: 10px;
-        }
+.grid_250 {
+    vertical-align: top;
+    display: inline-block;
+    width: 250px;
+    margin-left: 10px;
+}
 
-        .grid_280 {
-            vertical-align: top;
-            display: inline-block;
-            width: 280px;
-        }
+.grid_280 {
+    vertical-align: top;
+    display: inline-block;
+    width: 280px;
+}
 
 #logo_bienvenida {
     border: none;

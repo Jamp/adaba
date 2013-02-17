@@ -7,7 +7,7 @@
  * @version 0.1
  *
  */
-class ramas extends ActiveRecord {
+class Ramas extends ActiveRecord {
 
 
     public function initialize() {

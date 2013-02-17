@@ -7,7 +7,7 @@
  * @version 0.1
  *
  */
-class grupo extends ActiveRecord {
+class Grupo extends ActiveRecord {
 
 
     public function initialize() {

@@ -7,7 +7,7 @@
  * @version 0.1
  *
  */
-class sistema extends ActiveRecord {
+class Sistema extends ActiveRecord {
 
 
     public function initialize() {

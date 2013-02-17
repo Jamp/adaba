@@ -7,14 +7,14 @@
  * @version 0.1
  *
  */
-class region extends ActiveRecord {
+class Region extends ActiveRecord {
 
 
     public function initialize() {
     }
 
-    public function getRegion() {
-    	return $this->find();
+    public function getRegiones($id = "") {
+    	return $this->find($id);
     }
 
 }
