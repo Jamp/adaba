@@ -63,24 +63,6 @@ class DatosPersonales extends ActiveRecord {
     }
 
     public function after_save() {
-        Load::model('datos_jovenes');
-        Load::model('datos_representante');
-        $jovenes = Input::post('scouts');
-        $rep1 = Input::post('rep1');
-        $rep2 = Input::post('rep2');
-        
-        $datosJovenes = new DatosJovenes($jovenes);
-        $rsj = $datosJovenes->vincular($this->id);
-        $datosRepresentante1 = new DatosRepresentante($rep1);
-        $rsp1 = $datosRepresentante1->vincular($this->id);
-        $datosRepresentante2 = new DatosRepresentante($rep2);
-        $rsp2 = $datosRepresentante2->vincular($this->id);
-
-        /*if ( $this->rs && $rsj && $rsp1 && $rsp2 ) {
-            $this->commit();
-        } else {
-            $this->rollback();
-        }*/
 
     }
 }

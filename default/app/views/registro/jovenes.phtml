@@ -1,7 +1,7 @@
 
 			<span class="titulo"> Registrar Jovén </span>
 			<span class="subtitulo"> Datos Personales </span>
-			<?php echo Form::open('registro/registrar/'); ?>
+			<?php echo Form::open('registro/registrar/'); echo Form::hidden('tipo', NULL, '1'); ?>
 				<!-- Izquierdo -->
 				<section class="grid_4 alpha">
 						<label class="izq">Primer Nombre</label>
@@ -169,8 +169,7 @@
 							<div class="grid_especial omega">
 								<div class="grid_280">
 									<label class="izq">Distrito</label>
-									<?php echo Form::hidden('scouts.pais_id', '1');
-									echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
+									<?php echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Unidad</label>
 									<?php echo Form::select('scouts.grupo_ramas_id', array('--'), 'class="campotxt medium"'); ?>
@@ -307,11 +306,12 @@
 						});
 						$('#scouts_grupo_id').on('change', function() {
 							var objecto = $('#scouts_grupo_ramas_id');
+							var fecha = $( '#datos_fecha_nacimiento' ).val().replace(/\//g, '-');
 							objecto.append( new Option("Cargando...", "0") );
 							clearSelect( $('#scouts_grupo_ramas_id') );
 							clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
 							$.getJSON(
-								'<?php echo PUBLIC_PATH; ?>registro/getRamas/' + $( this ).val(),
+								'<?php echo PUBLIC_PATH; ?>registro/getRamas/' + $( this ).val() + '/' + $( '#datos_sexo' ).val() + '/' + fecha,
 								function(data) {
 									clearSelect(objecto);
 									if ( data.status == 'OK' ) {
@@ -338,6 +338,18 @@
 								}
 							);
 						});
+					});
+					$('#datos_sexo').on('change', function(){
+						$("#scouts_distrito_id option[value=\"\"]").attr("selected",true);
+						clearSelect( $('#scouts_grupo_id') );
+						clearSelect( $('#scouts_grupo_ramas_id') );
+						clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
+					});
+					$('#datos_fecha_nacimiento').on('change', function(){
+						$("#scouts_distrito_id option[value=\"\"]").attr("selected",true);
+						clearSelect( $('#scouts_grupo_id') );
+						clearSelect( $('#scouts_grupo_ramas_id') );
+						clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
 					});
 					function clearSelect(objecto) {
 						objecto.empty();

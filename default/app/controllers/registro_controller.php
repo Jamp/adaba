@@ -80,12 +80,36 @@ class RegistroController extends AppController
         if ( Input::hasPost('datos') ) {
             Load::model('datos_personales');
             $datos = new DatosPersonales( Input::post('datos') );
-            if ( $datos->registrar() ) Flash::valid('Jóven Registrado correctamente');
+            $id = $datos->registrar();
+
+            if ( Input::post('tipo') == 1 ) {
+                // Datos Jóvenes
+                Load::model('datos_jovenes');
+                Load::model('datos_representante');
+                $jovenes = Input::post('scouts');
+                $rep1 = Input::post('rep1');
+                $rep2 = Input::post('rep2');
+                
+                $datosJovenes = new DatosJovenes($jovenes);
+                $rsj = $datosJovenes->vincular($id);
+                $datosRepresentante1 = new DatosRepresentante($rep1);
+                $rsp1 = $datosRepresentante1->vincular($id);
+                $datosRepresentante2 = new DatosRepresentante($rep2);
+                $rsp2 = $datosRepresentante2->vincular($id);
+                Flash::valid('Jovén Registrado Correctamente');
+            } else {
+                Load::model('datos_adultos');
+                Load::model('datos_adultos');
+
+
+                Flash::valid('Adultos Registrado Correctamente');
+            }
+
 
             // print "ID -> " .$datos->registrar();
-            // print "<pre>";
-            // print_r($_POST);
-            // print "</pre>";
+            print "<pre>";
+            print_r($_POST);
+            print "</pre>";
 /*
 Array
 (
@@ -174,10 +198,11 @@ Array
         echo json_encode($salida);
     }
 
-    public function getRamas($idGrupo = '') {
+    public function getRamas($idGrupo = '', $sexo = NULL, $fecha = NULL) {
+        $edad = ( is_null($fecha) ) ? NULL : (int)(( time() - strtotime($fecha) )/31556926);
         $salida = array('status' => 'ERROR');
         if ( $idGrupo != '' ) {
-            $ramas = Load::model('ramas')->getRamas($idGrupo);
+            $ramas = Load::model('ramas')->getRamas($idGrupo, $sexo, $edad);
             if ( $ramas ) $salida['status'] = "OK";
             $salida['ramas'] = $ramas;
         }
@@ -198,4 +223,20 @@ Array
         echo json_encode($salida);
     }
 
+    public function getCargos($codigo) {
+        $salida = array('status' => 'ERROR');
+        $c = explode("-", $codigo);
+        $cargos = Load::model('cargo')->getCargos($c[0], $c[1], $c[2]);
+        if ($cargos) {
+            $salida['status'] = "OK";
+            $salida['cargos'] = $cargos;
+        }
+        View::template(NULL);
+        View::response('json');
+        echo json_encode($salida);
+    }
+
+    public function getCargoUnidad($region, $distrito, $grupo, $unidad) {
+
+    }
 }

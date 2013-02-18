@@ -2,33 +2,34 @@
 			<span class="titulo"> Registrar Jovén </span>
 			<span class="subtitulo"> Datos Personales </span>
 			<?php View::content(); ?>
+			<?php Form::open(); echo Form::hidden('tipo', NULL, '1'); ?>
 				<!-- Izquierdo -->
 				<section class="grid_4 alpha">
 						<label class="izq">Primer Nombre*</label>
-						<?php echo Form::text('primer_nombre', 'class="campotxt medium"', $primer_nombre); ?>
+						<?php echo Form::text('datos.primer_nombre', 'class="campotxt medium"', $primer_nombre); ?>
 						<br/>
 						<label class="izq">Primer Apellido</label>
-						<?php echo Form::text('primer_apellido', 'class="campotxt medium"', $primer_apellido); ?>
+						<?php echo Form::text('datos.primer_apellido', 'class="campotxt medium"', $primer_apellido); ?>
 						<br/>
 						<label class="izq">Cédula</label>
-						<?php echo Form::text('cedula', 'class="campotxt small"', $cedula); ?>
+						<?php echo Registro::number('datos.cedula', 'class="campotxt small"', $cedula); ?>
 						<br/>
 						<label class="izq">Nacionalidad</label>
-						<?php echo Registro::cmbNacionalidad('nacionalidad', 'class="campotxt medium"', $nacionalidad); ?>
+						<?php echo Registro::cmbNacionalidad('datos.nacionalidad', 'class="campotxt medium"', $nacionalidad); ?>
 						<br/>
 						<label class="izq">Estado Civil</label>
-						<?php echo Registro::cmbCivil('estado_civil', 'class="campotxt medium"', $estado_civil); ?>
+						<?php echo Registro::cmbCivil('adulto.estado_civil', 'class="campotxt medium"', $estado_civil); ?>
 						<br/>
 						<label class="izq">Religión</label>
-						<?php echo Registro::cmbReligion('religion', 'class="campotxt medium"', $religion); ?>
+						<?php echo Registro::cmbReligion('datos.religion', 'class="campotxt medium"', $religion); ?>
 						<br/>
 						<label class="izq">Sexo</label>
-						<?php echo Registro::cmbSexo('sexo', 'class="campotxt small"', $sexo); ?>
+						<?php echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"', $sexo); ?>
 						<br/>
 						<label class="izq">Telefóno</label>
-						<?php echo Form::text('telefono', 'class="campotxt small"', $telefono); ?>
+						<?php echo Registro::tel('datos.telefono', 'class="campotxt small"', $telefono); ?>
 						<label class="izq">Celular</label>
-						<?php echo Form::text('celular', 'class="campotxt small"', $celular); ?>
+						<?php echo Registro::cel('datos.celular', 'class="campotxt small"', $celular); ?>
 						<br/>
 				</section>
 				<!-- Izquierdo -->
@@ -36,28 +37,28 @@
 				<!-- Derecho -->
 				<section class="grid_4 omega">
 						<label class="izq">Segundo Nombre</label>
-						<?php echo Form::text('segundo_nombre', 'class="campotxt medium"', $segundo_nombre); ?>
+						<?php echo Form::text('datos.segundo_nombre', 'class="campotxt medium"', $segundo_nombre); ?>
 						<br/>
 						<label class="izq">Segundo Apellido</label>
-						<?php echo Form::text('segundo_apellido', 'class="campotxt medium"', $segundo_apellido); ?>
+						<?php echo Form::text('datos.segundo_apellido', 'class="campotxt medium"', $segundo_apellido); ?>
 						<br/>
 						<label class="izq">Fecha de Nacimiento</label>
-						<?php echo Registro::fecha('fecha_nacimiento', 'class="campotxt small"', $fecha_nacimiento); ?>
+						<?php echo Registro::fecha('datos.fecha_nacimiento', 'class="campotxt small"', $fecha_nacimiento); ?>
 						<br/>
 						<label class="izq">Tipo de Sangre</label>
-						<?php echo Registro::cmbSangre('sexo', 'class="campotxt medium"', $tipo_sangre); ?>
+						<?php echo Registro::cmbSangre('datos.tipo_sangre', 'class="campotxt medium"', $tipo_sangre); ?>
 						<br/>
 						<label class="izq">Ocupación</label>
-						<?php echo Registro::cmbOcupacion('sexo', 'class="campotxt medium"', $ocupacion); ?>
+						<?php echo Registro::cmbOcupacion('datos.ocupacion', 'class="campotxt medium"', $ocupacion); ?>
 						<br/>
 						<label class="izq">Grado de Instrucción</label>
-						<?php echo Registro::cmbInstruccion('grado_instruccion', 'class="campotxt medium"', $grado_instruccion); ?>
+						<?php echo Registro::cmbInstruccion('datos.grado_instruccion', 'class="campotxt medium"', $grado_instruccion); ?>
 						<br/>
 						<label class="izq">Lugar de Nacimiento</label>
-						<?php echo Form::text('lugar_nacimiento', 'class="campotxt medium"', $lugar_nacimiento); ?>
+						<?php echo Form::text('datos.lugar_nacimiento', 'class="campotxt medium"', $lugar_nacimiento); ?>
 						<br/>
 						<label class="izq">Dirección</label>
-						<textarea class="campotxt medium" name="direccion_hab" id="direccion_hab"></textarea>
+						<?php echo Form::textarea('datos.direccion', ' class="campotxt medium"'); ?>
 				</section>
 				<!-- Derecho -->
 				<div class="clear"></div>
@@ -73,21 +74,21 @@
 							<div class="grid_especial omega">
 								<div class="grid_280">
 									<label class="izq">Lugar de Trabajo</label>
-									<?php echo Form::text('lugar_trabajo', 'class="campotxt medium"'); ?>
+									<?php echo Form::text('adulto.lugar_trabajo', 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Telf. de Trabajo</label>
-									<?php echo Form::text('telefono_trabajo', 'class="campotxt medium"'); ?>
+									<?php echo Form::text('adulto.telefono_trabajo', 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Fax de Trabajo</label>
-									<?php echo Form::text('fax_trabajo', 'class="campotxt medium"'); ?>
+									<?php echo Form::text('adulto.fax_trabajo', 'class="campotxt medium"'); ?>
 									<br/>
 								</div>
 								<div class="grid_280">
 									<label class="izq">Correo de Trabajo</label>
-									<?php echo Form::text('email_trabajo', 'class="campotxt medium"'); ?>
+									<?php echo Form::text('adulto.email_trabajo', 'class="campotxt medium"'); ?>
 									<br/>
-									<label class="izq">Dirección</label>
-									<textarea class="campotxt medium" name="direccion_hab" id="direccion_hab"></textarea>
+									<label class="izq">Dirección <br/>de Trabajo</label>
+									<?php echo Form::textarea('adulto.direccion_trabajo', ' class="campotxt medium"'); ?>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -102,7 +103,7 @@
 									<?php echo Form::dbSelect('distrito', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Grupo</label>
-									<?php echo Form::select('grupo', array('--'), 'class="campotxt small"'); ?>
+									<?php echo Form::select('grupo', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -125,10 +126,10 @@
 									<?php echo Registro::fecha('fecha_promesa', 'class="campotxt small"') ?>
 									<br/>
 									<label class="izq">Cargo a Ocupar</label>
-									<?php echo Registro::fecha('fecha_promesa', 'class="campotxt small"') ?>
+									<?php echo Form::select('cargo', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Área a Atender</label>
-									<?php echo Registro::fecha('fecha_promesa', 'class="campotxt small"') ?>
+									<?php echo Form::select('area', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -159,20 +160,45 @@
 					$(document).ready(function() {
 						$('#tabs').tabs();
 						$('#distrito').on('change', function() {
-							$('#grupo').append( new Option("Cargando...", "0") );
+							loadSelect( $('#grupo') );
+							clearSelect( $('#cargo') );
 							$.getJSON(
 								'<?php echo PUBLIC_PATH; ?>registro/getGrupos/' + $( this ).val(),
 								function(data) {
-									$('#grupo').empty();
+									clearSelect( $('#grupo') );
 									if ( data.status == 'OK' ) {
 										$.each(data.grupos, function(i, grupo) {
 											$('#grupo').append( new Option(grupo.nombre, grupo.id) );
 										});
-									} else {
-										$('#grupo').append( new Option("--", "0") );
-									}
+									} 
 								}
 							);
 						});
+
+						$('#grupo').on('change', function() {
+							loadSelect( $('#cargo') );
+							// clearSelect( $('#cargo') );
+							$.getJSON(
+								'<?php echo PUBLIC_PATH; ?>registro/getCargos/1-' + $('#distrito').val() + '-' + $( this ).val(),
+								function(data) {
+									clearSelect( $('#cargo') );
+									if ( data.status == 'OK' ) {
+										$.each(data.cargos, function(i, item) {
+											var cargo = item.nombre.replace(' No Aplica','');
+											$('#cargo').append( new Option(cargo.replace(' Unidad',''), item.id) );
+										});
+									} 
+								}
+							);
+						});
+
+						function clearSelect(objecto) {
+							objecto.empty();
+							objecto.append( new Option('--', 0) );
+						}
+						function loadSelect(objecto) {
+							objecto.empty();
+							objecto.append( new Option("Cargando...", "0") );
+						}
 					});
 				</script>
