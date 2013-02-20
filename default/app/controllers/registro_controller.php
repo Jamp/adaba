@@ -78,6 +78,7 @@ class RegistroController extends AppController
 
     public function registrar() {
         if ( Input::hasPost('datos') ) {
+            /*
             Load::model('datos_personales');
             $datos = new DatosPersonales( Input::post('datos') );
             $id = $datos->registrar();
@@ -89,7 +90,7 @@ class RegistroController extends AppController
                 $jovenes = Input::post('scouts');
                 $rep1 = Input::post('rep1');
                 $rep2 = Input::post('rep2');
-                
+
                 $datosJovenes = new DatosJovenes($jovenes);
                 $rsj = $datosJovenes->vincular($id);
                 $datosRepresentante1 = new DatosRepresentante($rep1);
@@ -105,7 +106,7 @@ class RegistroController extends AppController
                 Flash::valid('Adultos Registrado Correctamente');
             }
 
-
+*/
             // print "ID -> " .$datos->registrar();
             print "<pre>";
             print_r($_POST);
@@ -138,13 +139,13 @@ Array
         (
             [lugar_estudio_trabajo] => IUTIRLA
             [tipo_estudio] => 1
-            [pais_id] => 
+            [pais_id] =>
             [distrito_id] => 1
             [grupo_ramas_id] => 6
-            [fecha_ingreso] => 
+            [fecha_ingreso] =>
             [grupo_id] => 1
             [grupo_ramas_agrupaciones_id] => 0
-            [fecha_promesa] => 
+            [fecha_promesa] =>
         )
 
     [rep1] => Array
@@ -158,16 +159,16 @@ Array
             [ocupacion] => 36
             [telefono] => 02695116112
             [celular] => 04262631070
-            [email] => 
-            [fax] => 
-            [direccion] => 
+            [email] =>
+            [fax] =>
+            [direccion] =>
         )
 
     [rep2] => Array
         (
-            [nombre] => 
+            [nombre] =>
             [nacionalidad] => 19
-            [cedula] => 
+            [cedula] =>
             [sangre] => 4
             [religion] => 5
             [grado_instruccion] => 0
@@ -175,7 +176,7 @@ Array
             [telefono] => 02695116112
             [celular] => 04126903543
             [email] => fmarval.rodriguez@gmail.com
-            [fax] => 
+            [fax] =>
             [direccion] => Los Semerrucos
         )
 

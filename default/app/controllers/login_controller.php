@@ -19,7 +19,7 @@ class LoginController extends AppController
 	            $login = $datos->login($usuario);
 
             	$clave = md5(Input::post('clave'));
-            	$this->auth = new Auth('model', 'class: sistema', "datos_personales_id: $login", "clave: $clave");
+            	$this->auth = new Auth('model', 'class: datos_adultos_scouts', "datos_personales_id: $login", "clave: $clave");
 	            if ( !$this->auth->authenticate() ) {
 	                Flash::error("Usuario o Contrase&ntilde;a es Invalida");
 	            } else {
