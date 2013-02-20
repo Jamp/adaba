@@ -9,11 +9,12 @@
  */
 class DatosPersonales extends ActiveRecord {
 
+    protected $logger = True;
+
     public function initialize() {
         // $this->belongs_to('datos_personales', 'model: datos_personales', 'fk: datos_personales_id');
         $this->validates_email_in('email', 'message: Debe colocar un correo electrónico válido');
         //$this->validates_length_of('clave', 16, 8);
-        $this->logger = True;
     }
 
     public function login($email){

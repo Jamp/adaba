@@ -78,7 +78,7 @@ class RegistroController extends AppController
 
     public function registrar() {
         if ( Input::hasPost('datos') ) {
-            /*
+
             Load::model('datos_personales');
             $datos = new DatosPersonales( Input::post('datos') );
             $id = $datos->registrar();
@@ -98,7 +98,7 @@ class RegistroController extends AppController
                 $datosRepresentante2 = new DatosRepresentante($rep2);
                 $rsp2 = $datosRepresentante2->vincular($id);
                 Flash::valid('Jovén Registrado Correctamente');
-            } else {
+            } /* else {
                 Load::model('datos_adultos');
                 Load::model('datos_adultos');
 
