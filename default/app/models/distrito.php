@@ -22,8 +22,8 @@ class Distrito extends ActiveRecord {
     		`distrito`.`id` AS id, 
     		`distrito`.`nombre` AS nombre, 
     		COUNT( DISTINCT `grupo`.`id` ) AS grupos,
-            COUNT( DISTINCT `datos_jovenes`.`id`) AS jovénes,
-            COUNT( DISTINCT `datos_adultos_scouts`.`id`) AS adultos
+            COUNT( DISTINCT `datos_jovenes`.`datos_personales_id`) AS jovénes,
+            COUNT( DISTINCT `datos_adultos_scouts`.`datos_personales_id`) AS adultos
     	FROM `distrito`
     	INNER JOIN `grupo` ON `distrito`.`id` = `grupo`.`distrito_id`
         INNER JOIN `cargo` ON `distrito`.`id` = `cargo`.`distrito_id`
