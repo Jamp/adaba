@@ -4,7 +4,7 @@ ADABA
 Sistema de Gestión Scouts Web, Desarrollado para la Región Scouts Falcón por el equipo de Icterus, C.A. con [KumbiaPHP 1.0Beta2](http://www.kumbiaphp.com/) y [960 Grid](http://960.gs/)
 
 ## Desarrollado por el Equipo de Icterus
-* [Jaro Marval](jampgold@gmail.com) (Jefe del Proyecto, Desarrollador, Diseñador)
+* [Jaro Marval](jampgold@gmail.com) (Jefe del Proyecto, Desarrollador, Seudo-Diseñador)
 * [Enrique Valerio](scouter_ejv@hotmail.com) (Creador de Concepto)
 
 ## Caracteristicas

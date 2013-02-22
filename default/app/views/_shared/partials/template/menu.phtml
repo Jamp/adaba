@@ -1,7 +1,9 @@
 <?php
+	if ( Auth::is_valid() ):
 	$cargo = Session::get('cargo');
 	$poder = Session::get('poder')
 ?>
+
 		<!-- Menu -->
 		<nav class="grid_2">
 			<div id="menu">
@@ -33,31 +35,45 @@
 							<li><?php echo Html::link('registro/adultos/', 'Nuevo Adulto'); ?></li>
 						</ul>
 					</li>
+
+					<?php if ( $cargo['nivel'] == 3 ): ?>
 					<li><span id="nombremenu">Región</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
 							<li><?php echo Html::link('estructura/' . $cargo['nivel'], 'Distritos'); ?></li>
 						</ul>
 					</li>
-					<!-- <li><span id="nombremenu">Distrito</span>
+					<?php endif; ?>
+
+					<?php if ( $cargo['nivel'] == 4 ): ?>
+					<li><span id="nombremenu">Distrito</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
-							<li><a href="#">Grupos</a></li>
+							<li><?php echo Html::link('estructura/' . $cargo['nivel'], 'Grupos'); ?></li>
 						</ul>
 					</li>
+					<?php endif; ?>
+
+					<?php if ( $cargo['nivel'] == 5 ): ?>
 					<li><span id="nombremenu">Grupo</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
-							<li><a href="#">Unidades</a></li>
+							<li><?php echo Html::link('estructura/' . $cargo['nivel'], 'Unidades'); ?></li>
 						</ul>
 					</li>
+					<?php endif; ?>
+
+					<?php if ( $cargo['nivel'] == 6 ): ?>
 					<li><span id="nombremenu">Unidad</span>
 						<ul>
-							<li><a href="/adaba/miunidad/">Mi Unidad</a></li> <!-- El adulto puede editar y agregar el joven no
+							<li><a href="/adaba/miunidad/">Mi Unidad</a></li> <!-- El adulto puede editar y agregar el joven no -->
 						</ul>
-					</li>-->
+					</li>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div class="clear"></div>
 		</nav>
 		<!-- Menu -->
+
+<?php endif; ?>

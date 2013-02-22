@@ -15,9 +15,10 @@ class cargo extends ActiveRecord {
 
     public function getCargo($id) {
         $sql = "SELECT
-        `cargo`.`id` AS id, `cargo_nombre`.`nombre` AS nombre
+        `cargo`.`id`, `cargo_nombre`.`nombre`, `pais_id`, `region_id`, `distrito_id`, `grupo_id`, `ramas_id`
         FROM `cargo`
         INNER JOIN `ramas` ON `cargo`.`ramas_id` = `ramas`.`id`
+        INNER JOIN `cargo_nombre` ON `cargo`.`cargo_nombre_id` = `cargo_nombre`.`id`
         WHERE
         `cargo`.`id` = $id";
     	return $this->find_by_sql($sql);
