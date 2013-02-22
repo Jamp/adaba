@@ -18,14 +18,20 @@ class EstructuraController extends AppController {
 	}
 
 	public function index($nivel, $tipo = NULL ) {
+		$cargo = Session::get('cargo');
+		$poder = Session::get('poder');
+		if( ( $cargo['nivel'] > $nivel && $poder['nivel'] > $nivel ) && Auth::is_valid() ){
+			Flash::error('No posee permiso para acceder a esta función');
+			Router::redirect('bienvenida/');
+			return;
+		}
 
 		$this->titulo = "Estructura";
-		
-		$cargo = Session::get('cargo');
+
 		if ( is_Null($tipo) ) {
 			$id_area = $cargo['alcance_id'];
 			$this->volver = "";
-		} else { 
+		} else {
 			$id_area = $tipo;
 			$this->volver = '<a href="javascript:history.back(1)">Volver Atrás</a>';
 		}
@@ -56,7 +62,7 @@ class EstructuraController extends AppController {
 				$model = 'agrupaciones';
 				$method = 'getAgrupaciones';
 				break;
-			
+
 			default:
 				$rs = NULL;
 		}

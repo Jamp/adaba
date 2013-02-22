@@ -8,6 +8,7 @@
  *
  */
 class DatosJovenes extends ActiveRecord {
+    protected $logger = True;
 
 	public function vincular($idpersonal){
 		$this->pais_id = 1;

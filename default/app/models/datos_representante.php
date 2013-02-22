@@ -8,6 +8,7 @@
  *
  */
 class DatosRepresentante extends ActiveRecord {
+	protected $logger = True;
 
 	public function vincular($idpersonal) {
 		$this->datos_personales_id = $idpersonal;

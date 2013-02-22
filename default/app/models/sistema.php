@@ -8,7 +8,7 @@
  *
  */
 class Sistema extends ActiveRecord {
-
+	protected $logger = True;
 
     public function initialize() {
         $this->belongs_to('datos_personales', 'model: datos_personales', 'fk: datos_personales_id');

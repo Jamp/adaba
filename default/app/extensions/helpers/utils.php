@@ -80,7 +80,7 @@ class Utils {
 				$alcance_id = False;
 				$alcance = "Alcance Invalido";
 				$nivel_nombre = "Nivel Invalido";
-				$nivel = False;
+				$nivel = 9999;
 				break;
 		}
 
@@ -99,9 +99,9 @@ class Utils {
 
 	/**
 	 * Helpers para grid de datos segun un resultado de consulta
-	 * 
+	 *
 	 * FIXME: Eliminar Result como parametros a recibir y cambiarlo por un Array
-	 * 
+	 *
 	 * @var $modelo Array/Result Datos del Modelo, ejem: array($model, $method, $arg)
 	 * @var $opciones Boolean Columnas de Opciones
 	 * @var $arrayOpciones Array Lista de Opciones, ejem: array('Ver' => '/registro/ver/2/', 'Modificar' => '/registro/ver/2/' )
@@ -142,7 +142,7 @@ class Utils {
 			if ( !$header ) {
 				foreach ($elementos as $key) {
 					if ( $current == $first ) {
-						print "\t\t<th>ID</th>\r\n";	
+						print "\t\t<th>ID</th>\r\n";
 					} else {
 						print "\t\t<th>" . ucfirst($key) . "</th>\r\n";
 					}

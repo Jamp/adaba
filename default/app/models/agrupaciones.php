@@ -8,6 +8,7 @@
  *
  */
 class Agrupaciones extends ActiveRecord {
+	protected $logger = True;
 
 
     public function initialize() {

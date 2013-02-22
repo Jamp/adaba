@@ -7,7 +7,7 @@
 class IndexController extends AppController
 {
 
-	    ## Filtro de seguridad ##
+    ## Filtro de seguridad ##
     protected function before_filter() {
         if ( !Auth::is_valid() ) {
             Router::redirect('/logout/');

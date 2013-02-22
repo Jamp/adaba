@@ -8,7 +8,7 @@
  *
  */
 class Grupo extends ActiveRecord {
-
+	protected $logger = True;
 
     public function initialize() {
     }
