@@ -100,11 +100,10 @@ class Utils {
 	/**
 	 * Helpers para grid de datos segun un resultado de consulta
 	 *
-	 * FIXME: Eliminar Result como parametros a recibir y cambiarlo por un Array
 	 *
-	 * @var $modelo Array/Result Datos del Modelo, ejem: array($model, $method, $arg)
+	 * @var $modelo Array Datos del Modelo, ejemplo: array($model, $method, $arg)
 	 * @var $opciones Boolean Columnas de Opciones
-	 * @var $arrayOpciones Array Lista de Opciones, ejem: array('Ver' => '/registro/ver/2/', 'Modificar' => '/registro/ver/2/' )
+	 * @var $arrayOpciones Array Lista de Opciones, ejemplo: array('Ver' => '/registro/see/', 'Modificar' => '/registro/edit/' )
 	 */
 	public static function grid($modelo, $opciones = False, $arrayOpciones = NULL){
 

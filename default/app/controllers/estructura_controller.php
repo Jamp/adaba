@@ -40,8 +40,7 @@ class EstructuraController extends AppController {
 		$this->h2 = "Seccion: " . ucfirst($cargo['alcance']);
 
 		$opciones = array(
-			'Ver' => 'estructura/' . ( $nivel + 1 ) ,
-			'Modificar' => '#'
+			'Ver' => 'estructura/' . ( $nivel + 1 )
 			);
 
 		switch ($nivel) {
@@ -52,6 +51,7 @@ class EstructuraController extends AppController {
 			case self::DISTRITAL:
 				$model = 'grupo';
 				$method = 'getGrupos';
+				$opciones['Modificar'] = '#';
 				$opciones['GPO'] = 'generar_gpo/';
 				break;
 			case self::GRUPAL:

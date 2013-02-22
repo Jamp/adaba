@@ -21,7 +21,7 @@
 					<?php echo $cargo['nombre']; ?>
 					<?php echo ( $cargo['alcance_id'] ) ? "<br>" . $cargo['alcance'] : ""; ?>
 					<br>
-					<?php echo ( $poder['nivel'] ) ? '<span class="etq">Poderes:</span><br/>' . $poder['nombre'] : ''; ?>
+					<?php echo ( $poder['nivel'] != 9999 ) ? '<span class="etq">Poderes:</span><br/>' . $poder['nombre'] : ''; ?>
 					<?php echo ( $poder['alcance_id'] ) ? '<br>' . $poder['alcance'] . '<br>' : ''; ?>
 				</div>
 				<div id="nombreseccion">Notificaciones (2)</div>
