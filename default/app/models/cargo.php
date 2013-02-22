@@ -14,20 +14,27 @@ class cargo extends ActiveRecord {
     }
 
     public function getCargo($id) {
-    	return $this->find_first($id);
+        $sql = "SELECT
+        `cargo`.`id` AS id, `cargo_nombre`.`nombre` AS nombre
+        FROM `cargo`
+        INNER JOIN `ramas` ON `cargo`.`ramas_id` = `ramas`.`id`
+        WHERE
+        `cargo`.`id` = $id";
+    	return $this->find_by_sql($sql);
     }
 
     public function getCargos($idRegion, $idDistrito, $idGrupo) {
     	$sql = "SELECT
-    	`cargo`.`id` AS id, concat(`cargo`.`nombre`, ' ', `ramas`.`nombre`) AS nombre
-    	FROM `cargo`
-    	INNER JOIN `ramas` ON `cargo`.`ramas_id` = `ramas`.`id`
+        `cargo`.`id` AS id, concat(`cargo_nombre`.`nombre`, ' ', `ramas`.`nombre`) AS nombre
+        FROM `cargo`
+        INNER JOIN `ramas` ON `cargo`.`ramas_id` = `ramas`.`id`
+        INNER JOIN `cargo_nombre` ON `cargo`.`cargo_nombre_id` = `cargo_nombre`.`id`
     	WHERE
     	`pais_id` = 1
-		AND `region_id` = $idRegion
-		AND `distrito_id` = $idDistrito
-		AND `grupo_id` = $idGrupo";
-    	return $this->find_all_by_sql($sql);
+  		AND `region_id` = $idRegion
+  		AND `distrito_id` = $idDistrito
+  		AND `grupo_id` = $idGrupo";
+        return $this->find_all_by_sql($sql);
     }
 
   //   public function getCargos($nombre) {
