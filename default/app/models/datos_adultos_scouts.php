@@ -15,5 +15,10 @@ class DatosAdultosScouts extends ActiveRecord {
 		return $this->save();
 	}
 
+	public function clave($clave) {
+		$this->clave = md5($clave);
+		return $this->save();
+	}
+
 }
 ?>

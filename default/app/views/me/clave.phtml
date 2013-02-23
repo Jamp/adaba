@@ -1,0 +1,19 @@
+			<span class="titulo"> Cambiar Contraseña </span>
+			<span class="subtitulo"> Datos Personales </span>
+			<?php echo Form::open(); ?>
+			<?php View::content(); ?>
+				<!-- Izquierdo -->
+				<section class="grid_4 prefix_2 suffix_2 alpha omega">
+						<label class="izq">Contraseña</label>
+						<?php echo Form::text('clave', 'class="campotxt medium"'); ?>
+						<br/>
+						<label class="izq">Re-Contraseña</label>
+						<?php echo Form::text('reclave', 'class="campotxt medium"'); ?>
+				</section>
+				<!-- Izquierdo -->
+
+				<div class="clear"></div>
+
+				<div class="grid_1 prefix_5 suffix_2 alpha omega">
+					<?php echo Form::submit('Cambiar', 'class="botonessimples" id="aceptar"'); ?>
+				</div>
