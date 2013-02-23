@@ -1,35 +1,35 @@
 
 			<span class="titulo"> Registrar Jovén </span>
 			<span class="subtitulo"> Datos Personales </span>
-			<?php View::content(); ?>
 			<?php echo Form::open('registro/registrar/'); echo Form::hidden('tipo', NULL, '2'); ?>
+			<?php View::content(); ?>
 				<!-- Izquierdo -->
 				<section class="grid_4 alpha">
 						<label class="izq">Primer Nombre*</label>
-						<?php echo Form::text('datos.primer_nombre', 'class="campotxt medium"', $primer_nombre); ?>
+						<?php echo Form::text('datos.primer_nombre', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Primer Apellido</label>
-						<?php echo Form::text('datos.primer_apellido', 'class="campotxt medium"', $primer_apellido); ?>
+						<?php echo Form::text('datos.primer_apellido', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Cédula</label>
-						<?php echo Registro::number('datos.cedula', 'class="campotxt small"', $cedula); ?>
+						<?php echo Registro::number('datos.cedula', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Nacionalidad</label>
-						<?php echo Registro::cmbNacionalidad('datos.nacionalidad', 'class="campotxt medium"', $nacionalidad); ?>
+						<?php echo Registro::cmbNacionalidad('datos.nacionalidad', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Estado Civil</label>
-						<?php echo Registro::cmbCivil('adulto.estado_civil', 'class="campotxt medium"', $estado_civil); ?>
+						<?php echo Registro::cmbCivil('adulto.estado_civil', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Religión</label>
-						<?php echo Registro::cmbReligion('datos.religion', 'class="campotxt medium"', $religion); ?>
+						<?php echo Registro::cmbReligion('datos.religion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Sexo</label>
-						<?php echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"', $sexo); ?>
+						<?php echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Telefóno</label>
-						<?php echo Registro::tel('datos.telefono', 'class="campotxt small"', $telefono); ?>
+						<?php echo Registro::tel('datos.telefono', 'class="campotxt small"'); ?>
 						<label class="izq">Celular</label>
-						<?php echo Registro::cel('datos.celular', 'class="campotxt small"', $celular); ?>
+						<?php echo Registro::cel('datos.celular', 'class="campotxt small"'); ?>
 						<br/>
 				</section>
 				<!-- Izquierdo -->
@@ -37,25 +37,25 @@
 				<!-- Derecho -->
 				<section class="grid_4 omega">
 						<label class="izq">Segundo Nombre</label>
-						<?php echo Form::text('datos.segundo_nombre', 'class="campotxt medium"', $segundo_nombre); ?>
+						<?php echo Form::text('datos.segundo_nombre', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Segundo Apellido</label>
-						<?php echo Form::text('datos.segundo_apellido', 'class="campotxt medium"', $segundo_apellido); ?>
+						<?php echo Form::text('datos.segundo_apellido', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Fecha de Nacimiento</label>
-						<?php echo Registro::fecha('datos.fecha_nacimiento', 'class="campotxt small"', $fecha_nacimiento); ?>
+						<?php echo Registro::fecha('datos.fecha_nacimiento', 'class="campotxt small"'); ?>
 						<br/>
 						<label class="izq">Tipo de Sangre</label>
-						<?php echo Registro::cmbSangre('datos.tipo_sangre', 'class="campotxt medium"', $tipo_sangre); ?>
+						<?php echo Registro::cmbSangre('datos.tipo_sangre', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Ocupación</label>
-						<?php echo Registro::cmbOcupacion('datos.ocupacion', 'class="campotxt medium"', $ocupacion); ?>
+						<?php echo Registro::cmbOcupacion('datos.ocupacion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Grado de Instrucción</label>
-						<?php echo Registro::cmbInstruccion('datos.grado_instruccion', 'class="campotxt medium"', $grado_instruccion); ?>
+						<?php echo Registro::cmbInstruccion('datos.grado_instruccion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Lugar de Nacimiento</label>
-						<?php echo Form::text('datos.lugar_nacimiento', 'class="campotxt medium"', $lugar_nacimiento); ?>
+						<?php echo Form::text('datos.lugar_nacimiento', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Dirección</label>
 						<?php echo Form::textarea('datos.direccion', ' class="campotxt medium"'); ?>
@@ -98,13 +98,13 @@
 							<div class="grid_especial omega">
 								<div class="grid_280">
 									<label class="izq">Región</label>
-									<?php echo Form::text('region', 'class="campotxt medium" readonly', 'Falcón'); ?>
+									<?php echo Form::select('scouts.region_id', array(1 => 'Falcón'), 'class="campotxt medium" readonly'); ?>
 									<br/>
 									<label class="izq">Distrito</label>
-									<?php echo Form::dbSelect('distrito', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
+									<?php echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Grupo</label>
-									<?php echo Form::select('grupo', array('--'), 'class="campotxt medium"'); ?>
+									<?php echo Form::select('scouts.grupo_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -124,12 +124,15 @@
 								</div>
 								<div class="grid_280">
 									<label class="izq">Fecha de Ingreso</label>
-									<?php echo Registro::fecha('fecha_promesa', 'class="campotxt small"') ?>
+									<?php echo Registro::fecha('scouts.fecha_promesa', 'class="campotxt small"') ?>
 									<br/>
 									<label class="izq">Cargo a Ocupar</label>
-									<?php echo Form::select('cargo', array('--'), 'class="campotxt medium"'); ?>
+									<?php echo Form::select('scouts.cargo_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
-									<?php echo Form::text('fuck', 'class="campotxt medium" style="visible:none;"'); ?>
+									<label class="izq">Estatus</label>
+									<?php 
+									echo Form::select('scouts.estatus', array(1 => 'Activo'), 'class="campotxt medium" readonly');
+									echo Form::hidden('scouts.poderes_id', NULL, '0'); ?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -160,33 +163,34 @@
 				<script type="text/javascript">
 					$(document).ready(function() {
 						$('#tabs').tabs();
-						$('#distrito').on('change', function() {
-							loadSelect( $('#grupo') );
-							clearSelect( $('#cargo') );
+						$('#scouts_distrito_id').on('change', function() {
+							loadSelect( $('#scouts_grupo_id') );
+							clearSelect( $('#scouts_cargo_id') );
 							$.getJSON(
 								'<?php echo PUBLIC_PATH; ?>registro/getGrupos/' + $( this ).val(),
 								function(data) {
-									clearSelect( $('#grupo') );
+									clearSelect( $('#grupo_id') );
 									if ( data.status == 'OK' ) {
+										clearSelect( $('#scouts_grupo_id') );
 										$.each(data.grupos, function(i, grupo) {
-											$('#grupo').append( new Option(grupo.nombre, grupo.id) );
+											$('#scouts_grupo_id').append( new Option(grupo.nombre, grupo.id) );
 										});
 									}
 								}
 							);
 						});
 
-						$('#grupo').on('change', function() {
-							loadSelect( $('#cargo') );
+						$('#scouts_grupo_id').on('change', function() {
+							loadSelect( $('#scouts_cargo_id') );
 							// clearSelect( $('#cargo') );
 							$.getJSON(
-								'<?php echo PUBLIC_PATH; ?>registro/getCargos/1-' + $('#distrito').val() + '-' + $( this ).val(),
+								'<?php echo PUBLIC_PATH; ?>registro/getCargos/' + $('#scouts_region_id').val() + '-' + $('#scouts_distrito_id').val() + '-' + $( this ).val(),
 								function(data) {
-									clearSelect( $('#cargo') );
+									clearSelect( $('#scouts_cargo_id') );
 									if ( data.status == 'OK' ) {
 										$.each(data.cargos, function(i, item) {
 											var cargo = item.nombre.replace(' No Aplica','');
-											$('#cargo').append( new Option(cargo.replace(' Unidad',''), item.id) );
+											$('#scouts_cargo_id').append( new Option(cargo.replace(' Unidad',''), item.id) );
 										});
 									}
 								}
