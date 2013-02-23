@@ -9,11 +9,11 @@ Sistema de Gestión Scouts Web, Desarrollado para la Región Scouts Falcón por 
 
 ## Caracteristicas
 * Registro Scouts (Grupos, Unidad, Patrullas, Seisenas, Jovenés, Adultos)
-* Aprobación de Condecoraciones
 * Asignación de Cargos
 
 ## Cosas por hacer
 * Registro Scouts (Institucionales)
+* Aprobación de Condecoraciones
 * Asistencias
 * % de Permancia
 * Solicitud de Máximas Insignias
