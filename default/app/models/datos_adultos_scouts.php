@@ -12,12 +12,14 @@ class DatosAdultosScouts extends ActiveRecord {
 
 	public function vincular($idpersonal) {
 		$this->datos_personales_id = $idpersonal;
-		return $this->save();
+		return $this->create();
 	}
 
-	public function clave($clave) {
-		$this->clave = md5($clave);
-		return $this->save();
+	public function cambioClave() {
+		$clave = $this->clave;
+		$rs = $this->find_first('datos_personales_id = ' . $this->datos_personales_id );
+		$rs->clave = md5($clave);
+		return $rs->update();
 	}
 
 }

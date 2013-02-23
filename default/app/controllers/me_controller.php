@@ -54,13 +54,22 @@ class MeController extends AppController
     }
 
     public function clave() {
-        if ( Input::hasPost('clave') ) {
-            if ( Input::post('clave') == '' ) {
-                Flash::error('La clave ya no puede estar vacía');
-            } elseif ( strlen(Input::post('clave')) >= 4 && strlen(Input::post('clave')) <= 14 ) {
+        if ( Input::hasPost('datos') ) {
+            $datos = Input::post('datos');
+            $datos['datos_personales_id'] = Session::get('id');
+
+            if ( $datos['clave'] == '' ) {
+                Flash::error('La clave no puede estar vacía');
+            } elseif ( strlen($datos['clave']) <= 4 && strlen($datos['clave']) >= 14 ) {
                 Flash::error('La clave no puede ser menos a 4 ni mayor a 14');
-            } elseif ( Input::post('clave') == Input::post('reclave') ) {
-                $clave = Load::model('datos_adultos_scouts');
+            } elseif ( $datos['clave'] == $datos['reclave'] ) {
+                Load::model('datos_adultos_scouts');
+                $clave = new DatosAdultosScouts($datos);
+                if( $clave->cambioClave()) {
+                    Flash::valid('Clave Cambiada Exitosamente');
+                } else {
+                    Flash::error('No se pudo actualizar su clave');
+                }
             } else {
                 Flash::error('No son iguales las contraseñas');
             }
