@@ -47,16 +47,6 @@ class cargo extends ActiveRecord {
         $this->cargo_nombre_id = $idNombreCargo;
         return $this->create();
     }
-  //   public function getCargos($nombre) {
-  //   	$sql = "SELECT
-  //   	`cargo`.`id` AS id, `cargo`.`nombre` AS nombre
-  //   	FROM `cargo`
-  //   	INNER JOIN `ramas` ON `cargo`.`ramas_id` = `ramas`.`id`
-  //   	WHERE
-		// AND `cargo`.`grupo_id` = $idGrupo
-		// AND `cargo`.`nombre` = '$nombre'";
-  //   	return $this->find_all_by_sql($sql);
-  //   }
 
 }
 ?>
