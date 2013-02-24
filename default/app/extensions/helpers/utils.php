@@ -179,4 +179,18 @@ class Utils {
 
 	}
 
+	/**
+	 * Función para convertir fechas dd/mm/yyyy a yyyy-mm-dd
+	 *
+	 * @var $fecha String fecha en formato dd/mm/yyyy
+	 * @return String fecha en formato yyyy-mm-dd
+	 *
+	 */
+	public static function ConversionFecha($fecha) {
+		// FIXME: Resolver problema de la conversión de fecha con algo más contundente
+        $d = explode('/', $fecha);
+    	return $d[2] . '-' . $d[1] . '-' . $d[0];
+        //return strftime("%d/%m/%Y", strtotime($fecha));
+	}
+
 }

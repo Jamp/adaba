@@ -22,9 +22,7 @@ class Grupo extends ActiveRecord {
     }
 
     public function actualizarGrupo() {
-        // $d = explode('/', $this->fundacion_at);
-    	// $this->fundacion_at = $d[2] . '-' . $d[1] . '-' . $d[0];
-        $this->fundacion_at = strftime("%d/%m/%Y", strtotime($this->fundacion_at));
+    	$this->fundacion_at = Utils::ConversionFecha($this->fundacion_at);
     	return $this->update();
     }
 

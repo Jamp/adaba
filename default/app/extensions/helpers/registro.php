@@ -364,12 +364,12 @@ class Registro extends Form {
     public static function fecha($field, $attrs = NULL, $value = NULL ) {
         $actual = date('Y');
         $rangoano = ($actual - 100)  . ':' . $actual;  //yearRange: '2000:2010'
-        $value = ($value) ? strftime("%d/%m/%Y", strtotime($value)) : "";
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
 
         extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        $value = ($value) ? strftime("%d/%m/%Y", strtotime($value)) : "";
 
         return "<input id=\"$id\" name=\"$name\" type=\"date\" value=\"$value\" $attrs/>";
     }
