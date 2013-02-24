@@ -2,9 +2,9 @@
 			<span class="titulo"> Registrar Jovén </span>
 			<span class="subtitulo"> Datos Personales </span>
 			<?php echo Form::open('registro/registrar/'); echo Form::hidden('tipo', NULL, '1'); ?>
-			<?php View::content(); ?>
 				<!-- Izquierdo -->
 				<section class="grid_4 alpha">
+						<?php View::content(); ?>
 						<label class="izq">Primer Nombre</label>
 						<?php echo Form::text('datos.primer_nombre', 'class="campotxt medium"'); ?>
 						<br/>
