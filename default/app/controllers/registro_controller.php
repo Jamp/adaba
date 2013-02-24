@@ -95,11 +95,11 @@ class RegistroController extends AppController
                 $datosJovenes = new DatosJovenes($jovenes);
                 $rsj = $datosJovenes->vincular($id);
                 $datosRepresentante1 = new DatosRepresentante($rep1);
-                $rsp1 = $datosRepresentante1->vincular($id);
+                $rsp1 = $rsj && $datosRepresentante1->vincular($id);
                 $datosRepresentante2 = new DatosRepresentante($rep2);
-                $rsp2 = $datosRepresentante2->vincular($id);
+                $rsp2 =  $rsp1 && $datosRepresentante2->vincular($id);
 
-                if ( $rsj && $rsp1 && $rsp2 ) {
+                if ( $rsp2 ) {
                     $datos->commit();
                     Flash::valid('Jovén Registrado Correctamente');
                 } else {

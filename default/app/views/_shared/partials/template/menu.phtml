@@ -40,7 +40,8 @@
 					<li><span id="nombremenu">Región</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
-							<li><?php echo Html::link('estructura/' . $cargo['nivel'], 'Distritos'); ?></li>
+							<li><?php echo Html::link('estructura/grupo/' , 'Crear Grupo'); ?></li>
+							<li><?php echo Html::link('estructura/nivel/' . $cargo['nivel'], 'Distritos'); ?></li>
 						</ul>
 					</li>
 					<?php endif; ?>
@@ -49,7 +50,7 @@
 					<li><span id="nombremenu">Distrito</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
-							<li><?php echo Html::link('estructura/' . $cargo['nivel'], 'Grupos'); ?></li>
+							<li><?php echo Html::link('estructura/nivel/' . $cargo['nivel'], 'Grupos'); ?></li>
 						</ul>
 					</li>
 					<?php endif; ?>
@@ -58,7 +59,7 @@
 					<li><span id="nombremenu">Grupo</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
-							<li><?php echo Html::link('estructura/' . $cargo['nivel'], 'Unidades'); ?></li>
+							<li><?php echo Html::link('estructura/nivel/' . $cargo['nivel'], 'Unidades'); ?></li>
 						</ul>
 					</li>
 					<?php endif; ?>

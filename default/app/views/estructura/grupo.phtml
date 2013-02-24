@@ -1,0 +1,42 @@
+			<span class="titulo"> Crear Grupo </span>
+			<span class="subtitulo"> Estructura </span>
+			<?php echo Form::open(); echo Form::hidden('datos.id', NULL);?>
+
+				<!-- Izquierdo -->
+				<section class="grid_5 prefix_2 suffix_1 alpha omega">
+						<?php View::content(); ?>
+						<label class="izq">Nombre</label>
+						<?php echo Form::text('datos.nombre', 'class="campotxt large"'); ?>
+						<br/>
+						<label class="izq">Fecha Fundación</label>
+						<?php echo Registro::fecha('datos.fundacion_at', 'class="campotxt small"'); ?>
+						<br/>
+						<label class="izq">Dirección</label>
+						<?php echo Form::text('datos.direccion', 'class="campotxt large"'); ?>
+						<br/>
+						<label class="izq">Estado</label>
+						<?php echo Form::text('datos.estado', 'class="campotxt medium"'); ?>
+						<br/>
+						<label class="izq">Municipio</label>
+						<?php echo Form::text('datos.municipio', 'class="campotxt medium"'); ?>
+						<br/>
+						<label class="izq">Parroquia</label>
+						<?php echo Form::text('datos.parroquia', 'class="campotxt medium"'); ?>
+						<br/>
+						<label class="izq">Distrito</label>
+						<?php echo Form::dbSelect('datos.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), NULL, 'class="campotxt medium"'); ?>
+						<?php echo Form::hidden('datos.estatus', NULL, '1'); ?>
+						<br/>
+						<label class="izq">Descripción</label>
+						<?php echo Form::textarea('datos.descripcion', 'class="campotxt large"'); ?>
+						<br/>
+				</section>
+				<!-- Izquierdo -->
+
+				<div class="clear"></div>
+
+				<div class="grid_1 prefix_6 suffix_1 alpha omega">
+					<?php echo Form::submit($boton, 'class="botonessimples" id="aceptar"'); ?>
+				</div>
+			<?php Form::close(); ?>
+			<?php View::partial('formjs'); ?>

@@ -38,6 +38,15 @@ class cargo extends ActiveRecord {
         return $this->find_all_by_sql($sql);
     }
 
+    public function crearCargo($idRegion, $idDistrito, $idGrupo, $idRama, $idNombreCargo) {
+        $this->pais_id = 1;
+        $this->region_id = $idRegion;
+        $this->distrito_id = $idDistrito;
+        $this->grupo_id = $idGrupo;
+        $this->ramas_id = $idRama;
+        $this->cargo_nombre_id = $idNombreCargo;
+        return $this->create();
+    }
   //   public function getCargos($nombre) {
   //   	$sql = "SELECT
   //   	`cargo`.`id` AS id, `cargo`.`nombre` AS nombre
