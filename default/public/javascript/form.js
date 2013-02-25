@@ -74,6 +74,15 @@ $.fn.correo = function() {
     });
 }
 
+$.fn.clearSelect = function() {
+    $(this).empty();
+    $(this).append( new Option('--', '') );
+}
+
+$.fn.loadSelect = function() {
+    $(this).empty();
+    $(this).append( new Option("Cargando...", "") );
+}
 
 $(document).ready(function(){
 	var f = new Date(), ano = f.getFullYear();
@@ -89,4 +98,3 @@ $(document).ready(function(){
 	$('input[type="tel"][data-type="local"]').telefono();
     $('input[type="tel"][data-type="celular"]').celular();
 });
-

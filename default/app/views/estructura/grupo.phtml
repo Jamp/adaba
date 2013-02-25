@@ -24,7 +24,9 @@
 						<?php echo Form::text('datos.parroquia', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Distrito</label>
-						<?php echo Form::dbSelect('datos.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), NULL, 'class="campotxt medium"'); ?>
+						<?php
+						$disabled = ( $scouts->distrito_id )? ' disabled="disabled"': '';
+						echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"' .$disabled); ?>
 						<?php echo Form::hidden('datos.estatus', NULL, '1'); ?>
 						<br/>
 						<label class="izq">Descripción</label>

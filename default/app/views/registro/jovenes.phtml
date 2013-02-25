@@ -24,7 +24,14 @@
 						<?php echo Registro::cmbReligion('datos.religion', 'class="campotxt medium"'); ?>
 						<br/>
 						<label class="izq">Sexo</label>
-						<?php echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"'); ?>
+						<?php
+						if ( $scouts->ramas_id && $scouts->sexo ) {
+							$disabled = ' disabled="disabled"';
+							$sexo = $scouts->sexo;
+						} else {
+							$disabled = $sexo = '';
+						}
+						echo Registro::cmbSexo('datos.sexo', 'class="campotxt small"' . $disabled, $sexo); ?>
 						<br/>
 						<label class="izq">Telefóno</label>
 						<?php echo Registro::tel('datos.telefono', 'class="campotxt medium"'); ?>
@@ -169,10 +176,15 @@
 							<div class="grid_especial omega">
 								<div class="grid_280">
 									<label class="izq">Distrito</label>
-									<?php echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
+									<?php
+										$disabled = ( $scouts->distrito_id )? ' disabled="disabled"': '';
+										echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"' .$disabled);
+									?>
 									<br/>
 									<label class="izq">Unidad</label>
-									<?php echo Form::select('scouts.grupo_ramas_id', array('--'), 'class="campotxt medium"'); ?>
+									<?php
+									if ( $scouts->ramas_id ) { $disabled = ' disabled="disabled"'; $scouts->grupo_ramas_id = $scouts->ramas_id; } else $disabled = '';
+									echo ( $scouts->grupo_id )? Form::dbSelect('scouts.grupo_ramas_id', 'nombre', array('ramas', 'getRamas', $scouts->grupo_id), 'Seleccione', 'class="campotxt medium"' .$disabled) : Form::select('scouts.grupo_ramas_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Fecha de Ingreso</label>
 									<?php echo Registro::fecha('scouts.fecha_ingreso', 'class="campotxt small"'); ?>
@@ -181,7 +193,7 @@
 						                <thead>
 						                    <tr>
 						                        <th>Fecha</th>
-						                        <th>Adelanto B&aacute;sico</th>
+						                        <th>Adelanto Básico</th>
 						                    </tr>
 						                </thead>
 						                <tbody>
@@ -222,10 +234,14 @@
 								</div>
 								<div class="grid_280">
 									<label class="izq">Grupo</label>
-									<?php echo Form::select('scouts.grupo_id', array('--'), 'class="campotxt medium"'); ?>
+									<?php
+									$disabled = ( $scouts->grupo_id )? ' disabled="disabled"': '';
+									echo ( $scouts->distrito_id )? Form::dbSelect('scouts.grupo_id', 'nombre', array('grupo', 'getGrupos', $scouts->distrito_id), 'Seleccione', 'class="campotxt medium"' . $disabled) : Form::select('scouts.grupo_id', array('--'), 'class="campotxt medium"');
+									?>
 									<br/>
 									<label class="izq">Pequeña Grupo</label>
-									<?php echo Form::select('scouts.grupo_ramas_agrupaciones_id', array('--'), 'class="campotxt medium"'); ?>
+									<?php
+									echo ( $scouts->grupo_ramas_id )? Form::dbSelect('scouts.grupo_ramas_agrupaciones_id', 'nombre', array('agrupaciones', 'getAgrupaciones', $scouts->grupo_ramas_id ), 'Seleccione', 'class="campotxt medium"'): Form::select('scouts.grupo_ramas_agrupaciones_id', array('--'), 'class="campotxt medium"'); ?>
 									<br/>
 									<label class="izq">Fecha de Promesa</label>
 									<?php echo Registro::fecha('scouts.fecha_promesa', 'class="campotxt small"'); ?>
@@ -341,18 +357,14 @@
 					});
 					$('#datos_sexo').on('change', function(){
 						$("#scouts_distrito_id option[value=\"\"]").attr("selected",true);
-						clearSelect( $('#scouts_grupo_id') );
-						clearSelect( $('#scouts_grupo_ramas_id') );
-						clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
+						$('#scouts_grupo_id').clearSelect();
+						$('#scouts_grupo_ramas_id').clearSelect();
+						$('#scouts_grupo_ramas_agrupaciones_id').clearSelect();
 					});
 					$('#datos_fecha_nacimiento').on('change', function(){
 						$("#scouts_distrito_id option[value=\"\"]").attr("selected",true);
-						clearSelect( $('#scouts_grupo_id') );
-						clearSelect( $('#scouts_grupo_ramas_id') );
-						clearSelect( $('#scouts_grupo_ramas_agrupaciones_id') );
+						$('#scouts_grupo_id').clearSelect();
+						$('#scouts_grupo_ramas_id').clearSelect();
+						$('#scouts_grupo_ramas_agrupaciones_id').clearSelect();
 					});
-					function clearSelect(objecto) {
-						objecto.empty();
-						objecto.append( new Option('--', 0) );
-					}
 				</script>

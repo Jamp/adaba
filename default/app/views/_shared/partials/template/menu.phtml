@@ -11,11 +11,11 @@
 					<li><span id="nombremenu">Registro</span>
 						<ul>
 							<li><?php echo Html::link('registro/jovenes/', 'Nuevo Jovén'); ?></li>
-							<li><?php echo Html::link('registro/adultos/', 'Nuevo Adulto'); ?></li>
+							<?php if ( $cargo['nivel'] > 6 ) echo '<li>'.Html::link('registro/adultos/', 'Nuevo Adulto').'</li>'; ?>
 						</ul>
 					</li>
 
-					<?php if ( $cargo['nivel'] == 3 ): ?>
+					<?php if ( $cargo['nivel'] <= 3 ): ?>
 					<li><span id="nombremenu">Región</span>
 						<ul>
 							<li><a href="#">Equipo de Adultos</a></li>
@@ -47,7 +47,7 @@
 					<?php if ( $cargo['nivel'] == 6 ): ?>
 					<li><span id="nombremenu">Unidad</span>
 						<ul>
-							<li><a href="/adaba/miunidad/">Mi Unidad</a></li> <!-- El adulto puede editar y agregar el joven no -->
+							<li><?php echo Html::link('estructura/nivel/' . $cargo['nivel'], 'Mi Unidad'); ?></li><!-- El adulto puede editar y agregar el joven no -->
 						</ul>
 					</li>
 					<?php endif; ?>

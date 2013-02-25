@@ -46,11 +46,15 @@ class DatosPersonales extends ActiveRecord {
             estado_civil, lugar_trabajo, telefono_trabajo, fax_trabajo, email_trabajo,
 
             -- Datos Adultos Scouts
-            credencial, fecha_promesa
+            credencial, fecha_promesa, cargo_id, estatus,
+
+            -- Cargo
+            pais_id, region_id, distrito_id, grupo_id, ramas_id
 
             FROM datos_personales
-            INNER JOIN datos_adultos ON `datos_personales`.`id` = `datos_adultos`.`datos_personales_id`
-            INNER JOIN datos_adultos_scouts ON `datos_personales`.`id` = `datos_adultos_scouts`.`datos_personales_id`
+            INNER JOIN `datos_adultos` ON `datos_personales`.`id` = `datos_adultos`.`datos_personales_id`
+            INNER JOIN `datos_adultos_scouts` ON `datos_personales`.`id` = `datos_adultos_scouts`.`datos_personales_id`
+            INNER JOIN `cargo` ON `datos_adultos_scouts`.`cargo_id` = `cargo`.`id`
             WHERE `datos_personales`.`id` = $id";
             return $this->find_by_sql($sql);
     }

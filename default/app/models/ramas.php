@@ -30,5 +30,17 @@ class Ramas extends ActiveRecord {
 		return $this->find_all_by_sql($sql);
     }
 
+    public function getSexo($idgrupo) {
+    	$sql = "SELECT `ramas`.`sexo`
+		FROM `grupo`
+		INNER JOIN `grupo_ramas`ON `grupo`.`id` = `grupo_ramas`.`grupo_id`
+		INNER JOIN `ramas` ON `grupo_ramas`.`ramas_id` = `ramas`.`id`
+		WHERE
+		`grupo`.`id` =  $idgrupo
+		AND
+		`grupo`.`estatus` = 1";
+		return $this->find_by_sql($sql);
+    }
+
 }
 ?>

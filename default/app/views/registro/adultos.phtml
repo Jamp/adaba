@@ -94,17 +94,23 @@
 							</div>
 							<div class="clear"></div>
 						</div>
+						<?php // FIXME debo sacar de la vista las operaciones relacionadas al select de los grupo, distritos y regiones ?>
 						<div id="tab-2">
 							<div class="grid_especial omega">
 								<div class="grid_280">
 									<label class="izq">Región</label>
-									<?php echo Form::select('scouts.region_id', array(1 => 'Falcón'), 'class="campotxt medium" readonly'); ?>
+									<?php echo Form::select('scouts.region_id', array(1 => 'Falcón'), 'class="campotxt medium"  disabled="disabled"'); ?>
 									<br/>
 									<label class="izq">Distrito</label>
-									<?php echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"'); ?>
+									<?php
+									$disabled = ( $scouts->distrito_id )? ' disabled="disabled"': '';
+									echo Form::dbSelect('scouts.distrito_id', 'nombre', array('distrito', 'getDistritos', '1'), 'Seleccione', 'class="campotxt medium"' .$disabled); ?>
 									<br/>
 									<label class="izq">Grupo</label>
-									<?php echo Form::select('scouts.grupo_id', array('--'), 'class="campotxt medium"'); ?>
+									<?php
+									$disabled = ( $scouts->grupo_id )? ' disabled="disabled"': '';
+									echo ( $scouts->distrito_id )? Form::dbSelect('scouts.grupo_id', 'nombre', array('grupo', 'getGrupos', $scouts->distrito_id), 'Seleccione', 'class="campotxt medium"' . $disabled) : Form::select('scouts.grupo_id', array('--'), 'class="campotxt medium"');
+									?>
 									<br/>
 						          	<table>
 						                <thead>
@@ -127,11 +133,15 @@
 									<?php echo Registro::fecha('scouts.fecha_promesa', 'class="campotxt small"') ?>
 									<br/>
 									<label class="izq">Cargo a Ocupar</label>
-									<?php echo Form::select('scouts.cargo_id', array('--'), 'class="campotxt medium"'); ?>
+									<?php
+									$disabled = ( $scouts->cargo_id )? ' disabled="disabled"': '';
+									echo ( $scouts->grupo_id )? Form::dbSelect('scouts.cargo_id', 'nombre', array('cargo', 'getCargos', array($scouts->region_id, $scouts->distrito_id, $scouts->grupo_id)), 'Seleccione', 'class="campotxt medium"' . $disabled) : Form::select('scouts.cargo_id', array('--'), 'class="campotxt medium"');
+									?>
 									<br/>
 									<label class="izq">Estatus</label>
-									<?php 
-									echo Form::select('scouts.estatus', array(1 => 'Activo'), 'class="campotxt medium" readonly');
+									<?php
+									$disabled = ( $boton == "Registrar" )? ' disabled="disabled"': '';
+									echo Form::select('scouts.estatus', array(1 => 'Activo', 2 => 'Inactivo'), 'class="campotxt medium"'.$disabled);
 									echo Form::hidden('scouts.poderes_id', NULL, '0'); ?>
 									<br/>
 						          	<table>
@@ -155,7 +165,7 @@
 						</div>
 					</div>
 					<div class="grid_1 prefix_7 alpha omega">
-						<?php echo Form::submit('Registrar', 'class="botonessimples" id="aceptar"'); ?>
+						<?php echo Form::submit($boton, 'class="botonessimples" id="aceptar"'); ?>
 					</div>
 				</section>
 				<?php echo Form::close(); ?>
@@ -164,14 +174,14 @@
 					$(document).ready(function() {
 						$('#tabs').tabs();
 						$('#scouts_distrito_id').on('change', function() {
-							loadSelect( $('#scouts_grupo_id') );
-							clearSelect( $('#scouts_cargo_id') );
+							$('#scouts_grupo_id').loadSelect();
+							$('#scouts_cargo_id').clearSelect();
 							$.getJSON(
 								'<?php echo PUBLIC_PATH; ?>registro/getGrupos/' + $( this ).val(),
 								function(data) {
-									clearSelect( $('#grupo_id') );
+									$('#grupo_id').clearSelect();
 									if ( data.status == 'OK' ) {
-										clearSelect( $('#scouts_grupo_id') );
+										$('#scouts_grupo_id').clearSelect();
 										$.each(data.grupos, function(i, grupo) {
 											$('#scouts_grupo_id').append( new Option(grupo.nombre, grupo.id) );
 										});
@@ -181,29 +191,19 @@
 						});
 
 						$('#scouts_grupo_id').on('change', function() {
-							loadSelect( $('#scouts_cargo_id') );
+							$('#scouts_cargo_id').loadSelect();
 							// clearSelect( $('#cargo') );
 							$.getJSON(
 								'<?php echo PUBLIC_PATH; ?>registro/getCargos/' + $('#scouts_region_id').val() + '-' + $('#scouts_distrito_id').val() + '-' + $( this ).val(),
 								function(data) {
-									clearSelect( $('#scouts_cargo_id') );
+									$('#scouts_cargo_id').clearSelect();
 									if ( data.status == 'OK' ) {
 										$.each(data.cargos, function(i, item) {
-											var cargo = item.nombre.replace(' No Aplica','');
-											$('#scouts_cargo_id').append( new Option(cargo.replace(' Unidad',''), item.id) );
+											$('#scouts_cargo_id').append( new Option(item.nombre.replace(' Unidad',''), item.id) );
 										});
 									}
 								}
 							);
 						});
-
-						function clearSelect(objecto) {
-							objecto.empty();
-							objecto.append( new Option('--', 0) );
-						}
-						function loadSelect(objecto) {
-							objecto.empty();
-							objecto.append( new Option("Cargando...", "0") );
-						}
 					});
 				</script>

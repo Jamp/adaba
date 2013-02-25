@@ -78,6 +78,7 @@ class EstructuraController extends AppController {
 
 	public function grupo($id = NULL) {
 		$this->boton = 'Crear';
+		$this->scouts = Load::model('datos_personales')->getDatosAdulto(Session::get('id'));
 
 		if ( $id ) {
 			Load::model('grupo');

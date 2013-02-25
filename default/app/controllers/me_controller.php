@@ -17,6 +17,7 @@ class MeController extends AppController
 
     public function index() {
         $this->titulo = "Modificar Registro";
+        $this->boton = "Actualizar";
         View::select('../registro/adultos');
         $this->datos = $this->adulto = $this->scouts = Load::model('datos_personales')->getDatosAdulto(Session::get('id'));
     }

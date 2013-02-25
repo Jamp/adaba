@@ -70,7 +70,7 @@ class Utils {
 				break;
 			case '111111':
 				$alcance_id = $cargo->ramas_id;
-				$referencia = Load::model('rama')->find_first($alcance_id);
+				$referencia = Load::model('ramas')->find_first($alcance_id);
 				$alcance = $referencia->nombre;
 				$nivel_nombre = "Unidad";
 				$nivel = 6;

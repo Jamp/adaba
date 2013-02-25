@@ -448,12 +448,17 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbSexo($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbSexo($field, $attrs = NULL, $value = NULL) {
         $data = array(
             0 => 'Femenino',
             1 => 'Masculino'
         );
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
@@ -461,10 +466,15 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbCivil($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbCivil($field, $attrs = NULL, $value = NULL) {
         $estados = "NO REFIRIO|SOLTERO(A)|CASADO(A)|DIVORCIADO(A)|CONCUBINATO|SEPARADO(A)|VIUDO(A)";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+         if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
@@ -472,10 +482,15 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbOcupacion($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbOcupacion($field, $attrs = NULL, $value = NULL) {
         $estados = "NO REFIRIO|ABOGADO|ADMINISTRADOR|ADUANA|AGENTE DE VIAJES|AGRICULTOR|AGRICULTOR|AGRONOMO|ALBAÑIL|ALGODONERO|ANALISTA DE SISTEMA|ARQUITECTO|ARTESANO|ARTISTA|ASEGURADOR|ASESOR DE SEGUROS|ASIST. ADMINISTRACION|AUDITOR|AUX. CONTABILIDAD|AUXILIAR PREESCOLAR|BIBLIOTECARIA|BIOANALISTA|BIOLOGO|BIONALISTA|BOMBERO|CHOFER|COMERCIANTE|COMUNICADOR SOCIAL|CONSERJE|CONSTRUCTOR|CONSULTANTE|CONSULTORA DE BELLEZA|CONTADOR|CORREDOR(A) DE SEGUROS|COSTURERA|DEFENSORA PUBLICA|DEL HOGAR|DESEMPLEADO|DIPUTADO|DISEÑADOR|DISEÑADOR DE GRAFICO|DOCENTE|ECONOMISTA|EJECUTIVO|EMBAJADOR|EMPLEADO|EMPRESARIO|ENFERMERA|ESCRITORA|ESTUDIANTE|FARMACEUTA|FISCAL|FISCAL DE TRANSITO|FOTOGRAFO|GEOLOGO|GERENTE|GERENTE|GERENTE DE PROYECTOS|GERENTE PREESCOLAR|INGENIERO|INGENIERO CIVIL|INGENIERO DE SISTEMA|INGENIERO ELECTRICO|INGENIERO HIDRAULICO|INGENIERO MECANICO|INGENIERO METALURGICO|INSTRUCTOR DEPORTE|INSTRUMENTISTA|JUBILADO(A)|JUEZ|LICENCIADO(A)|MAESTRO(A)|MANICURISTA|MECANICO|MEDICO|MILITAR|MINISTRO(A)|MODISTA|MOTORIZADO|OBRERO|ODONTOLOGO|OFICINISTA|OPERADOR DE MAQ.|ORTOPEDISTA|PASTOR|PELUQUERA(O)|PILOTO|POLICIA|POLITICO|PRESIDENTE|PRODUCTOR|PROFESOR|PROGRAMADOR ANALISTA|PSICOLOGA|PSICOPEDAGOGA|PUBLICISTA|QUIMICO|RECEPCIONISTA|SACERDOTE|SASTRE|SECRETARIA|SUPERVISOR|TECNICO|TECNICO MECANICO|TECNICO RADIOLOGO|TOPOGRAFO|TRABAJADOR(A) SOCIAL.|TRAUMATOLOGO|TSU ADMINISTRACION|TSU ELECTRONICA|TSU INFORMATICA|TSU MERCADEO|TUTORA|URBANISTA|VENDEDOR|VETERINARIO|VICE-PRESIDENTE";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
@@ -483,10 +498,15 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbInstruccion($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbInstruccion($field, $attrs = NULL, $value = NULL) {
         $estados = "NO REFIRIO|1ER GRADO|2DO GRADO|3ER GRADO|4TO GRADO|5TO GRADO|6TO GRADO|7MO GRADO|8VO GRADO|9NO GRADO|1ER AÑO CIENCIAS|1ER AÑO HUMANIDADES|1ER AÑO INDUSTRIAL|2DO AÑO CIENCIAS|2DO AÑO HUMANIDADES|2DO AÑO INDUSTRIAL|3ER AÑO INDUSTRIAL|BACHILLER CIENCIAS|BACHILLER HUMANIDADES|BACHILLER INDUSTRIAL|ABOGADO|BIOANALISTA|DOCTORADO|ESPECIALIZACIÓN|ESTUDIANTE UNIVERSITARIO|INGENIERO|LICENCIADO|MAESTRÍA|MÉDICO|ODONTOLOGO|PSICOLOGO|TÉCNICO MEDIO|TÉCNICO SUPERIOR|TÉCNICO SUPERIOR UNIVERSITARIO";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
@@ -494,10 +514,15 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbSangre($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbSangre($field, $attrs = NULL, $value = NULL) {
         $estados = "NO REFIRIO|A RH POSITIVO|B RH POSITIVO|AB RH POSITIVO|O RH POSITIVO|A RH NEGATIVO|B RH NEGATIVO|AB RH NEGATIVO|O RH NEGATIVO";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
@@ -505,10 +530,15 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbReligion($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbReligion($field, $attrs = NULL, $value = NULL) {
         $estados = "NO REFIRIO|ADVENTISTA|ARECRISNA|ATEO|BUDISTA|CATOLICO|CRISTIANO|EVANGELICO|JUDIO|LUTERANO|MORMON|MUSULMAN|PROTESTANTE|TESTIGO DE JEHOVA|LA FUERZA";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
@@ -516,20 +546,30 @@ class Registro extends Form {
      * @param String $field
      * @return String
      */
-    public static function cmbNacionalidad($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbNacionalidad($field, $attrs = NULL, $value = NULL) {
         $estados = "NO REFIRIO|ARGENTINA|BRASILEÑA|BRITANICO|CHILENA|CHINA|COLOMBIANA|DOMINICANO|ECUATORIANO|ESPAÑOL|ESTADOUNIDENSE|GUYANA|INDIA|ITALIANA|MEXICANA|PERUANA|PORTUGUES|TRINITARIO|URUGUAYO|VENEZOLANA";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
     /**
      * @param String $field
      * @return String
      */
-    public static function cmbCapacitacion($field, $attrs = NULL, $checked = NULL) {
+    public static function cmbCapacitacion($field, $attrs = NULL, $value = NULL) {
         $estados = "AYUDANTE DE DIRECTOR DE CURSO (3 TACOS)|CURSO DE PLANIFICACION Y PROGRAMACION|DIRECTOR DE CURSO (4 TACOS)|NIVEL AVANZADO ADULTOS (I.M.)|NIVEL AVANZADO CLAN (I.M.)|NIVEL AVANZADO INSTITUCIONAL (I.M.)|NIVEL AVANZADO MANADA (I.M.)|NIVEL AVANZADO TROPA (I.M.)|NIVEL AVANZADO UNICO (I.M.)|NIVEL BASICO|NIVEL ESPECIALIZADO|NIVEL INTERMEDIO ADULTOS|NIVEL INTERMEDIO CLAN|NIVEL INTERMEDIO INSTITUCIONAL|NIVEL INTERMEDIO MANADA|NIVEL INTERMEDIO TROPA|OTRO TIPO DE CURSO|TALLER DE JUEGOS Y CANCIONES SCOUTS";
         $data = explode("|", $estados);
-        return parent::select($field, $data, $attrs, $checked);
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+
+        extract(self::getFieldData($field, $value), EXTR_OVERWRITE);
+        return parent::select($field, $data, $attrs, $value);
     }
 
 }

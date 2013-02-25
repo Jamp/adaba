@@ -17,63 +17,15 @@ class RegistroController extends AppController
 
     public function adultos() {
     	$this->titulo = "Registro de Nuevo Adultos";
-
-        /* Datos Personales */
-        $this->primer_nombre = "";
-        $this->segundo_nombre = "";
-        $this->primer_apellido = "";
-        $this->segundo_apellido = "";
-        $this->cedula = "";
-        $this->fecha_nacimiento = "";
-        $this->nacionalidad = "";
-        $this->tipo_sangre = "";
-        $this->grado_instruccion = "";
-        $this->religion = "";
-        $this->sexo = "";
-        $this->ocupacion = "";
-        $this->lugar_nacimiento = "";
-        $this->telefono = "";
-        $this->celular = "";
-        $this->email = "";
-        /* Datos Personales */
-
-        /* Datos Adultos */
-        $this->estado_civil = "";
-        $this->lugar_trabajo = "";
-        $this->telefono_trabajo = "";
-        $this->fax_trabajo = "";
-        $this->email_trabajo = "";
-        /* Datos Adultos */
-
-        /* Datos Adultos Scouts */
-        $this->credencial = "";
-        $this->fecha_promesa = "";
-        /* Datos Adultos Scouts */
-
+        $this->boton = "Registrar";
+        $this->scouts = Load::model('datos_personales')->getDatosAdulto(Session::get('id'));
+        $this->scouts->cargo_id = 0;
     }
 
     public function jovenes() {
     	$this->titulo = "Registro de Nuevo Jovén";
-
-        /* Datos Personales */
-        $this->primer_nombre = "";
-        $this->segundo_nombre = "";
-        $this->primer_apellido = "";
-        $this->segundo_apellido = "";
-        $this->cedula = "";
-        $this->fecha_nacimiento = "";
-        $this->nacionalidad = "";
-        $this->tipo_sangre = "";
-        $this->grado_instruccion = "";
-        $this->religion = "";
-        $this->sexo = "";
-        $this->ocupacion = "";
-        $this->lugar_nacimiento = "";
-        $this->telefono = "";
-        $this->celular = "";
-        $this->email = "";
-        /* Datos Personales */
-
+        $this->boton = "Registrar";
+        $this->scouts = Load::model('datos_personales')->getDatosAdulto(Session::get('id'));
     }
 
     public function registrar() {
